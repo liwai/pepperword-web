@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The normative specification for Pepperword's deterministic password derivation protocol.">
+  <title>PGS - Pepperword Generation Standard - Pepperword</title>
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #fbfaf7;
+  --paper: #ffffff;
+  --ink: #171614;
+  --muted: #625c55;
+  --faint: #8c857d;
+  --line: rgba(23, 22, 20, 0.14);
+  --soft-line: rgba(23, 22, 20, 0.08);
+  --accent: #d96a2f;
+  --code-bg: #f4f1ec;
+  --focus: #6658d3;
+}
+* { box-sizing: border-box; }
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+body { margin: 0; min-width: 320px; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+.top-line { position: fixed; inset: 0 0 auto; height: 3px; background: var(--accent); z-index: 10; }
+.masthead {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 30px 0 26px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.brand { color: var(--ink); font-weight: 700; text-decoration: none; }
+.doc-link { color: var(--muted); font-size: 0.92rem; font-weight: 600; }
+.shell {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: clamp(44px, 7vw, 92px);
+  align-items: start;
+}
+.document { max-width: 780px; padding: 58px 0 92px; }
+.kicker {
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0;
+  max-width: 740px;
+  font-size: clamp(2.55rem, 5vw, 4.6rem);
+  font-weight: 760;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+.meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 34px 0 54px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.meta div { padding: 15px 17px; border-right: 1px solid var(--line); }
+.meta div:last-child { border-right: 0; }
+.meta dt {
+  margin: 0 0 4px;
+  color: var(--faint);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.meta dd { margin: 0; color: var(--ink); font-weight: 650; }
+.document > h2:first-of-type { margin-top: 0; }
+h2, h3, h4, h5, h6 {
+  position: relative;
+  margin: 2.1em 0 0.72em;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+h2 { padding-top: 1.1em; border-top: 1px solid var(--line); font-size: 1.72rem; }
+h3 { font-size: 1.28rem; }
+h4 { font-size: 1.08rem; }
+h5, h6 { font-size: 1rem; }
+.anchor {
+  position: absolute;
+  left: -1.2em;
+  color: var(--faint);
+  opacity: 0;
+  text-decoration: none;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+p, li { color: var(--muted); font-size: 1rem; line-height: 1.72; }
+p { margin: 0 0 1.05em; }
+ul, ol { margin: 0 0 1.2em; padding-left: 1.35em; }
+li { margin: 0.34em 0; }
+strong { color: var(--ink); font-weight: 760; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+code {
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  color: var(--ink);
+  background: var(--code-bg);
+  border: 1px solid var(--soft-line);
+  border-radius: 5px;
+  padding: 0.08em 0.32em;
+}
+pre {
+  margin: 1.1rem 0 1.45rem;
+  padding: 18px 20px;
+  overflow-x: auto;
+  background: #151412;
+  color: #f8f5ef;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.16);
+}
+pre code {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+blockquote {
+  margin: 1.3rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(217, 106, 47, 0.055);
+}
+blockquote p { margin: 0.4em 0; color: var(--muted); }
+.table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; border: 1px solid var(--line); background: var(--paper); }
+table { width: 100%; border-collapse: collapse; min-width: 620px; }
+th, td { padding: 11px 13px; border-bottom: 1px solid var(--soft-line); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.48; }
+th { color: var(--ink); background: #f4f1ec; font-weight: 760; }
+td { color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+.toc {
+  position: sticky;
+  top: 28px;
+  max-height: calc(100svh - 56px);
+  overflow: auto;
+  padding: 58px 0 42px;
+}
+.toc-title {
+  margin: 0 0 14px;
+  color: var(--faint);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.toc nav { display: grid; gap: 2px; }
+.toc a {
+  display: block;
+  padding: 5px 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.toc a:hover { color: var(--ink); }
+.toc-depth-3 { padding-left: 14px !important; color: var(--faint) !important; font-size: 0.82rem !important; }
+.foot {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 24px 0 38px;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 0.88rem;
+}
+@media (max-width: 980px) {
+  .shell { display: block; }
+  .toc { position: static; max-height: none; padding: 0 0 40px; }
+  .toc nav { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+  .document { max-width: none; }
+}
+@media (max-width: 680px) {
+  .masthead, .shell, .foot { width: min(100% - 28px, 1180px); }
+  .masthead { padding-top: 22px; }
+  .document { padding-top: 42px; }
+  .meta { grid-template-columns: 1fr; }
+  .meta div { border-right: 0; border-bottom: 1px solid var(--line); }
+  .meta div:last-child { border-bottom: 0; }
+  .toc nav { grid-template-columns: 1fr; }
+  .anchor { display: none; }
+}
+</style>
+</head>
+<body>
+  <h1>TBD</h1>
+  <footer class="foot">Pepperword</footer>
+</body>
+</html>
