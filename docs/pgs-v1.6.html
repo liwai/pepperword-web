@@ -7,129 +7,81 @@
   <title>PGS - Pepperword Generation Standard - Pepperword</title>
   <style>
 :root {
-  color-scheme: light;
-  --bg: #fbfaf7;
-  --paper: #ffffff;
-  --ink: #171614;
-  --muted: #625c55;
-  --faint: #8c857d;
-  --line: rgba(23, 22, 20, 0.14);
-  --soft-line: rgba(23, 22, 20, 0.08);
-  --accent: #d96a2f;
-  --code-bg: #f4f1ec;
+  color-scheme: dark;
+  --ink: #0A0806;
+  --paper: #F5F1EB;
+  --muted: rgba(245, 241, 235, 0.58);
+  --line: rgba(245, 241, 235, 0.10);
+  --orange: #FF8A4E;
   --focus: #6658d3;
 }
 * { box-sizing: border-box; }
 html {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-body { margin: 0; min-width: 320px; }
-a { color: var(--accent); text-underline-offset: 0.18em; }
+body {
+  margin: 0;
+  min-width: 320px;
+  line-height: 1.5;
+}
+a { color: var(--orange); text-underline-offset: 0.18em; }
 a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
-.top-line { position: fixed; inset: 0 0 auto; height: 3px; background: var(--accent); z-index: 10; }
-.masthead {
-  width: min(1180px, calc(100% - 48px));
+.document {
+  width: min(760px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 30px 0 26px;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  border-bottom: 1px solid var(--line);
-}
-.brand { color: var(--ink); font-weight: 700; text-decoration: none; }
-.doc-link { color: var(--muted); font-size: 0.92rem; font-weight: 600; }
-.shell {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
-  gap: clamp(44px, 7vw, 92px);
-  align-items: start;
-}
-.document { max-width: 780px; padding: 58px 0 92px; }
-.kicker {
-  margin-bottom: 18px;
-  color: var(--accent);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  padding: clamp(56px, 9vw, 104px) 0;
 }
 h1 {
   margin: 0;
-  max-width: 740px;
-  font-size: clamp(2.55rem, 5vw, 4.6rem);
-  font-weight: 760;
-  line-height: 0.98;
-  letter-spacing: 0;
+  color: var(--paper);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
 }
 .meta {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  margin: 34px 0 54px;
-  border: 1px solid var(--line);
-  background: var(--paper);
+  margin: 24px 0 64px;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
-.meta div { padding: 15px 17px; border-right: 1px solid var(--line); }
-.meta div:last-child { border-right: 0; }
-.meta dt {
-  margin: 0 0 4px;
-  color: var(--faint);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.meta dd { margin: 0; color: var(--ink); font-weight: 650; }
 .document > h2:first-of-type { margin-top: 0; }
 h2, h3, h4, h5, h6 {
-  position: relative;
-  margin: 2.1em 0 0.72em;
-  color: var(--ink);
-  line-height: 1.2;
-  letter-spacing: 0;
+  margin: 2.2em 0 0.75em;
+  color: var(--paper);
+  font-weight: 500;
+  line-height: 1.25;
 }
-h2 { padding-top: 1.1em; border-top: 1px solid var(--line); font-size: 1.72rem; }
-h3 { font-size: 1.28rem; }
-h4 { font-size: 1.08rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
 h5, h6 { font-size: 1rem; }
-.anchor {
-  position: absolute;
-  left: -1.2em;
-  color: var(--faint);
-  opacity: 0;
-  text-decoration: none;
-}
-h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
 p, li { color: var(--muted); font-size: 1rem; line-height: 1.72; }
 p { margin: 0 0 1.05em; }
 ul, ol { margin: 0 0 1.2em; padding-left: 1.35em; }
 li { margin: 0.34em 0; }
-strong { color: var(--ink); font-weight: 760; }
+strong { color: var(--paper); font-weight: 600; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 code {
   font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 0.92em;
-  color: var(--ink);
-  background: var(--code-bg);
-  border: 1px solid var(--soft-line);
-  border-radius: 5px;
+  color: var(--paper);
+  background: rgba(245, 241, 235, 0.08);
+  border-radius: 4px;
   padding: 0.08em 0.32em;
 }
 pre {
   margin: 1.1rem 0 1.45rem;
   padding: 18px 20px;
   overflow-x: auto;
-  background: #151412;
-  color: #f8f5ef;
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.16);
+  background: rgba(245, 241, 235, 0.06);
+  color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
 }
 pre code {
   display: block;
@@ -142,71 +94,895 @@ pre code {
 }
 blockquote {
   margin: 1.3rem 0;
-  padding: 1rem 1.1rem;
-  border-left: 3px solid var(--accent);
-  background: rgba(217, 106, 47, 0.055);
+  padding-left: 1rem;
+  border-left: 2px solid var(--orange);
 }
 blockquote p { margin: 0.4em 0; color: var(--muted); }
-.table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; border: 1px solid var(--line); background: var(--paper); }
+.table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; }
 table { width: 100%; border-collapse: collapse; min-width: 620px; }
-th, td { padding: 11px 13px; border-bottom: 1px solid var(--soft-line); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.48; }
-th { color: var(--ink); background: #f4f1ec; font-weight: 760; }
+th, td { padding: 11px 13px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.48; }
+th { color: var(--paper); font-weight: 600; }
 td { color: var(--muted); }
 tr:last-child td { border-bottom: 0; }
-.toc {
-  position: sticky;
-  top: 28px;
-  max-height: calc(100svh - 56px);
-  overflow: auto;
-  padding: 58px 0 42px;
-}
-.toc-title {
-  margin: 0 0 14px;
-  color: var(--faint);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.toc nav { display: grid; gap: 2px; }
-.toc a {
-  display: block;
-  padding: 5px 0;
-  color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.35;
-  text-decoration: none;
-}
-.toc a:hover { color: var(--ink); }
-.toc-depth-3 { padding-left: 14px !important; color: var(--faint) !important; font-size: 0.82rem !important; }
-.foot {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 24px 0 38px;
-  border-top: 1px solid var(--line);
-  color: var(--faint);
-  font-size: 0.88rem;
-}
-@media (max-width: 980px) {
-  .shell { display: block; }
-  .toc { position: static; max-height: none; padding: 0 0 40px; }
-  .toc nav { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
-  .document { max-width: none; }
-}
 @media (max-width: 680px) {
-  .masthead, .shell, .foot { width: min(100% - 28px, 1180px); }
-  .masthead { padding-top: 22px; }
-  .document { padding-top: 42px; }
-  .meta { grid-template-columns: 1fr; }
-  .meta div { border-right: 0; border-bottom: 1px solid var(--line); }
-  .meta div:last-child { border-bottom: 0; }
-  .toc nav { grid-template-columns: 1fr; }
-  .anchor { display: none; }
+  .document { width: min(100% - 28px, 760px); }
 }
 </style>
 </head>
 <body>
-  <h1>TBD</h1>
-  <footer class="foot">Pepperword</footer>
+  <article class="document">
+    <h1>PGS - Pepperword Generation Standard</h1>
+    <p class="meta">Revision 1.6.0 · Stable · 2026-06-09</p>
+    <p><strong>Published by:</strong> Pepperword <strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; patent rights reserved (see <a href="#copyright-and-license">Copyright and License</a>)</p>
+<hr>
+<h2 id="abstract">Abstract</h2>
+<p>The Pepperword Generation Standard (PGS) specifies a deterministic password derivation protocol. Given an entropy source, a passphrase, and per-site metadata, PGS deterministically derives a credential string. No passwords are stored. The same credential is always recoverable from the same inputs.</p>
+<p>This document is the normative specification for PGS v1.6.0. It is intended for security researchers and auditors reviewing the protocol design, and for implementors who have licensed the patent.</p>
+<hr>
+<h2 id="terminology">Terminology</h2>
+<p><strong>Min-entropy.</strong> The min-entropy of a random variable X is H∞(X) = −log₂(max_x P(X = x)). It measures worst-case predictability: an adversary who optimally guesses X succeeds with probability 2^(−H∞(X)).</p>
+<p><strong>NE_SIZE.</strong> The named constant <code>NE_SIZE = 4128</code>, the number of 32-byte blocks in NE for this version. Versioning rules in §4.2.</p>
+<p><strong>Entropy Source (ES).</strong> The byte string supplied by the user as the secret entropy input, typically the contents of a single file (combining multiple files into one byte string is the caller's responsibility, §1.2). Must be strictly greater than <code>NE_SIZE × 32</code> bytes (132,096 bytes). See §4.1 for selection guidance.</p>
+<p><strong>Normalized Entropy (NE).</strong> The array of <code>NE_SIZE</code> 32-byte blocks produced by <code>Normalize</code> from the entropy source, denoted <code>NE[0..NE_SIZE-1]</code>. Never stored.</p>
+<p><strong>Pepper.</strong> A 32-byte value derived from NE and a target identifier. Serves as the HMAC key in pepperword generation. Target-specific within a user's NE.</p>
+<p><strong>Pepper Pool.</strong> Blocks <code>NE[0]</code> through <code>NE[4095]</code>: the first 4096 blocks of NE. A pepper is selected from this pool by hash-based index lookup.</p>
+<p><strong>Target Identifier (targetId).</strong> A canonical string identifying a relying application, derived from its URL by the normalization algorithm in §5.1. Format: normalized host identifier: the registrable domain for PSL-known domain names, otherwise an IPv4 address or the host name as given.</p>
+<p><strong>App URL (<code>appURL</code>).</strong> The canonical URL identifying the relying app; the default input to §5.1 targetId derivation (a caller may instead derive from a synthetic derivation URL, see §5.1).</p>
+<p><strong>Passphrase.</strong> The user's secret string.</p>
+<p><strong>Creation Timestamp (creationTimestamp).</strong> A uint64 Unix timestamp in milliseconds. Set when an app entry is first created; updated on each password rotation.</p>
+<p><strong>Human Passphrase Material (HPM).</strong> The byte string constructed as:</p>
+<pre><code>HPM = uint64_be(creationTimestamp) || UTF8(NFC(passphrase))</code></pre>
+<p><strong>Pepperword.</strong> The derived credential string produced for a specific <code>(user, target, creationTimestamp, policy)</code> tuple. Satisfies the app's password policy. Never stored by PGS.</p>
+<p><strong>Entropy ID (entropyID).</strong> A 24-character lowercase base32 identifier derived from NE[4098] (the identity block). Uniquely identifies a PGS entropy instance. See §7.</p>
+<p><strong>Profile ID (profileID).</strong> A 6-character human-readable label: the first 6 characters of <code>entropyID</code>. See §7.</p>
+<p><strong>PCS (Pepperword Custody Standard).</strong> A separate specification, defined outside this document.</p>
+<h2 id="1-introduction">1. Introduction</h2>
+<h3 id="11-background">1.1 Background</h3>
+<p>PGS addresses a specific problem: users need strong, unique passwords per site, but cannot remember dozens of them. A password manager solves this by storage. PGS solves it by derivation: the password is recomputed on demand from a secret the user already holds (a personal file and a passphrase), never stored anywhere.</p>
+<p>The derivation is deterministic and site-specific. Compromise of one derived credential does not expose credentials for other sites.</p>
+<p>Recovery requires the two user-held secrets plus per-site metadata that cannot be memorised and must be stored. See §8.11 for custody requirements.</p>
+<h3 id="12-scope">1.2 Scope</h3>
+<p>This document specifies:</p>
+<ul>
+<li>The three-phase derivation pipeline (Normalize, GeneratePepper, GeneratePepperword)</li>
+<li>The HPM construction and password rotation mechanism</li>
+<li>The password policy representation (composition, compositionPattern, prefix, postfix)</li>
+<li>The Entropy ID derivation algorithm (§7) and the NE block assignments it depends on</li>
+<li>Security properties and threat model</li>
+<li>Test vectors sufficient to verify any conforming implementation</li>
+</ul>
+<p>This document does not specify:</p>
+<ul>
+<li>How the entropy source is selected, stored, or transported</li>
+<li>How multiple files are combined into a single entropy source byte string (caller's responsibility)</li>
+<li>How the target identifier is presented to users</li>
+<li>Cloud synchronization or any persistence layer</li>
+</ul>
+<h3 id="13-protocol-stability-and-versioning">1.3 Protocol Stability and Versioning</h3>
+<h4 id="version-format">Version Format</h4>
+<p>PGS versions follow <code>MAJOR.MINOR.PATCH</code>. The current version is <strong>1.6.0</strong>.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Component</th><th>Meaning</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>MAJOR</td><td>Breaking; produces different pepperwords for the same inputs</td><td><code>1.x.x</code> → <code>2.0.0</code></td></tr>
+<tr><td>MINOR</td><td>Additive; new optional features leave existing inputs' outputs unchanged</td><td><code>1.5.x</code> → <code>1.6.0</code></td></tr>
+<tr><td>PATCH</td><td>Editorial only; clarifications, example fixes, test vector additions; no behavioral change</td><td><code>1.6.0</code> → <code>1.6.1</code></td></tr>
+</tbody></table></div>
+<p>Callers persist the <code>MAJOR.MINOR</code> string (e.g. <code>"1.6"</code>) as the protocol-version axis for an entry. PATCH changes do not update this stored value; they are transparent to all clients.</p>
+<h4 id="what-is-frozen-major-boundary">What Is Frozen (MAJOR boundary)</h4>
+<p>Any change that produces different output for existing inputs requires a MAJOR bump. The non-obvious boundaries:</p>
+<ul>
+<li>NE block contents or assignments at indices 0..NE_SIZE-1, or a decrease in <code>NE_SIZE</code></li>
+<li>The target identifier normalization algorithm (§5.1)</li>
+<li>The Entropy ID derivation algorithm (§7)</li>
+</ul>
+<blockquote><p><strong>Major bump warning (non-normative).</strong> A PGS major bump invalidates the derivation namespace for every stored credential. Even if old metadata is retained, the same entropy source, passphrase, targetId, creationTimestamp, and policy can no longer be assumed to reproduce the user's existing passwords under the new major. For a production password manager, this is effectively product-ending unless paired with an explicit per-entry migration in which every relying service password is changed. PGS v2 SHOULD be treated as an exceptional last resort, not a routine upgrade path.</p></blockquote>
+<h4 id="what-is-additive-minor-bump">What Is Additive (MINOR bump)</h4>
+<p>A MINOR bump is used for:</p>
+<ul>
+<li>New optional policy fields, provided absent fields have a fully-specified default that preserves existing output</li>
+<li>New reserved NE block assignments beyond the current layout</li>
+<li>New normative test vectors</li>
+<li>New formally-specified derivation algorithms that use previously-reserved NE blocks (as in this version for Entropy ID)</li>
+</ul>
+<p>Any new optional field in a PGS minor revision that affects derivation MUST define absent-field semantics that are identical to the previous minor revision. An older client that does not know the field and therefore omits it from the derivation MUST produce the same output that a newer client produces when the field is absent. A new field MUST NOT reinterpret an absent value as "use the new behavior."</p>
+<h4 id="derivation-affecting-minor-pattern">Derivation-Affecting MINOR Pattern</h4>
+<p>Some MINOR revisions affect only future entries, not existing stored entries, because the calling system stores the exact derivation inputs for each credential. A future MINOR revision may change how new target identifiers or other derivation inputs are constructed, but only when the constructed value is stored before it is used for derivation. Existing entries continue to derive from their frozen stored inputs.</p>
+<p>A future MINOR revision that changes how new derivation inputs are constructed MUST follow the same pattern:</p>
+<ul>
+<li>The constructed value used for derivation MUST be stored per entry or per history record before it is used.</li>
+<li>Existing stored values MUST NOT be recomputed, rewritten, or reinterpreted by the new minor.</li>
+<li>Opting into the new behavior MUST be explicit at the calling system / app layer, normally by creating a new entry or rotating in a way that stores a complete new derivation snapshot.</li>
+<li>Deriving an existing entry MUST use the frozen stored inputs, not the current client's preferred construction algorithm.</li>
+</ul>
+<h4 id="client-compatibility">Client Compatibility</h4>
+<p>PGS defines derivation behavior, not file mutability or version-compatibility policy. How a calling system handles entries that advertise a PGS major or minor version higher than the client supports is a custody-layer concern outside PGS scope.</p>
+<p>PATCH differences are transparent. PATCH changes never update the persisted <code>MAJOR.MINOR</code> string and never change derivation output.</p>
+<p>Implementations conforming to v1.6.0 are guaranteed to produce identical pepperwords for any inputs whose fields are defined in v1.6.0. A future v1.x.y minor revision MAY add new optional derivation-affecting fields, but per the absent-field rule in "What Is Additive" above, an absent field MUST keep the v1.6.0 derivation behavior, so v1.6.0 implementations remain forward-compatible for inputs that do not exercise the new fields.</p>
+<hr>
+<h2 id="2-conventions">2. Conventions</h2>
+<h3 id="21-key-words">2.1 Key Words</h3>
+<p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [RFC 2119] when they appear in all capitals.</p>
+<h3 id="22-notation">2.2 Notation</h3>
+<p><code>||</code> denotes byte string concatenation.</p>
+<p><code>x[i:j]</code> denotes the bytes of <code>x</code> at indices <code>i</code> (inclusive) through <code>j</code> (exclusive).</p>
+<p><code>0xNN</code> denotes a single byte with the given hexadecimal value.</p>
+<p><code>len(x)</code> denotes the length of byte string <code>x</code> in bytes.</p>
+<p>All integers are unsigned unless otherwise noted.</p>
+<p>Strings are encoded as UTF-8 bytes unless otherwise noted.</p>
+<h3 id="23-cryptographic-primitives">2.3 Cryptographic Primitives</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Primitive</th><th>Specification</th></tr></thead>
+<tbody>
+<tr><td><code>SHA-256(x)</code></td><td>SHA-256 hash of <code>x</code>; 32 bytes output [FIPS 180-4]</td></tr>
+<tr><td><code>SHA-512(x)</code></td><td>SHA-512 hash of <code>x</code>; 64 bytes output [FIPS 180-4]</td></tr>
+<tr><td><code>HMAC-SHA-512(key, message)</code></td><td>HMAC with SHA-512; 64 bytes output [RFC 2104]</td></tr>
+<tr><td><code>SHAKE-256(x, length)</code></td><td>SHA-3 XOF; <code>length</code> bytes output [FIPS 202]</td></tr>
+</tbody></table></div>
+<h3 id="24-biginteger-encoding">2.4 BigInteger Encoding</h3>
+<p>A byte string <code>b</code> of length <code>n</code> encodes an unsigned integer in <strong>big-endian</strong> byte order:</p>
+<pre><code>BigInt(b) = b[0]·256^(n-1) + b[1]·256^(n-2) + ... + b[n-1]·256⁰</code></pre>
+<p><code>b[0]</code> is the most significant byte; <code>b[n-1]</code> is the least significant byte. This is the standard convention used by all major big-integer libraries (<code>int.from_bytes(b, 'big')</code> in Python, <code>new BigInteger(1, b)</code> in Java, <code>new(big.Int).SetBytes(b)</code> in Go). Java's single-argument constructor <code>new BigInteger(b)</code> interprets the byte string as <strong>signed</strong> two's-complement and produces a different value when the high bit of <code>b[0]</code> is set; implementations MUST NOT use it.</p>
+<h3 id="25-base32-encoding">2.5 Base32 Encoding</h3>
+<p><code>base32_lowercase(x)</code> denotes RFC 4648 base32 encoding with the lowercase alphabet (<code>a–z</code>, <code>2–7</code>). No padding characters are emitted. <code>GenerateEntropyID</code> in §7 uses this encoding.</p>
+<h3 id="26-string-normalization">2.6 String Normalization</h3>
+<p>All Unicode strings used as derivation inputs MUST be normalized to <strong>Unicode Normalization Form C (NFC)</strong> before any further processing (UTF-8 encoding, <code>len(...)</code> computation, character indexing, or regex matching). This rule applies to:</p>
+<ul>
+<li><code>passphrase</code> in HPM construction (§6.1).</li>
+<li>Each <code>charSet</code> <code>C</code> in a composition unit (§6.2).</li>
+<li><code>prefix</code> and <code>postfix</code> strings (§6.2).</li>
+<li>The <code>compositionPattern</code> regular expression source (§6.2).</li>
+<li>Any literal string carried in caller-supplied policies that PGS treats as a derivation input.</li>
+</ul>
+<p>After NFC normalization, strings are interpreted as sequences of <strong>Unicode scalar values</strong>. <code>len(s)</code> is the number of Unicode scalars in <code>s</code>. <code>s[i]</code> is the i-th scalar (0-indexed). Concatenation operates on scalars. UTF-8 encoding (where required) operates on the post-NFC scalar sequence. Implementations MUST NOT use UTF-16 code units, byte indexing, or grapheme clusters for derivation-input length and indexing.</p>
+<p><code>targetId</code> is exempt from this rule because it is an output of §5.1 normalization, which already produces a canonical lowercase ASCII (or IDNA-encoded ASCII) string. <code>entropyID</code> is also exempt for the same reason (base32 lowercase ASCII).</p>
+<p>NFC itself has a living input: the implementation's Unicode database, the same drift shape as the [PSL] in §5.1 and category assignment in §6.2. Unicode's normalization stability policy guarantees that the NFC output of a string containing only assigned scalars never changes in later Unicode versions, so this drift can affect only strings containing unassigned (Cn) scalars. Composition charSets already reject unassigned scalars at construction (§6.2). Passphrases have no such gate; implementations MAY reject unassigned scalars in passphrases at entry time to close this residual drift.</p>
+<p>The string-normalization rule is part of the major-frozen surface (§1.3): changing it would silently break all existing pepperwords for non-ASCII inputs.</p>
+<hr>
+<h2 id="3-protocol-overview">3. Protocol Overview</h2>
+<pre><code>  Entropy Source (&gt; NE_SIZE × 32 bytes = 132,096 bytes)
+          │
+          ▼
+  ┌───────────────┐
+  │  Normalize()  │
+  └───────┬───────┘
+          │  NE: NE_SIZE × 32-byte blocks
+          │
+          ├──── NE[4098] ──────▶ ┌────────────────────┐
+          │                      │  GenerateEntropyID │  ──▶  entropyID (24-char)
+          │                      └────────────────────┘
+          │
+          │                       targetId (external)
+          │                              │
+          ▼                              ▼
+  ┌─────────────────────────────────────────┐
+  │             GeneratePepper()            │
+  └────────────────────┬────────────────────┘
+                       │  pepper (32 bytes)
+                       │
+                       │       HPM (external)   policy (external)
+                       │              │                 │
+                       ▼              ▼                 ▼
+  ┌─────────────────────────────────────────┐
+  │           GeneratePepperword()          │
+  └────────────────────┬────────────────────┘
+                       ▼
+               pepperword (string)</code></pre>
+<p><strong>Phase 1 (Normalize):</strong> The entropy source is passed through SHAKE-256. The output is sliced into <code>NE_SIZE</code> 32-byte blocks.</p>
+<p><strong>Phase 2 (GeneratePepper):</strong> A target-specific 32-byte pepper is derived from NE using two fixed-index seed blocks (<code>eb1</code> = NE[4096], <code>eb2</code> = NE[4097]) and a hash-based index lookup over a 4096-slot pool.</p>
+<p><strong>Phase 3 (GeneratePepperword):</strong> The pepper is combined with the user's HPM via HMAC-SHA-512. The output drives a composition encoder and a Fisher-Yates permutation loop to produce a credential string satisfying the policy.</p>
+<p><strong>Entropy ID (GenerateEntropyID):</strong> <code>entropyID</code> (24-character) is derived from <code>NE[4098]</code> (the identity block). It identifies the entropy source instance and is usable independently of the pepperword derivation pipeline.</p>
+<hr>
+<h2 id="4-phase-1-entropy-normalization">4. Phase 1: Entropy Normalization</h2>
+<h3 id="41-normalize">4.1 Normalize</h3>
+<p><strong>Assumption (ES-min-entropy).</strong> H∞(ES) ≥ NE_SIZE × 256 bits. This assumption holds when two conditions are jointly satisfied:</p>
+<ol>
+<li><strong>High entropy density.</strong> The file contains sufficient unpredictable content that its min-entropy meets the threshold.</li>
+</ol>
+<ol>
+<li><strong>Secrecy.</strong> The specific file is known only to the user. An attacker who knows the protocol and the size of ES cannot concentrate probability mass on any particular ES value.</li>
+</ol>
+<p>Neither condition alone is sufficient. A publicly known file satisfies (1) but not (2); H∞(ES) ≈ 0 from the attacker's view. A secret but highly compressible file satisfies (2) but not (1); H∞(ES) may fall below the threshold.</p>
+<p><strong>Goal.</strong> Given Assumption ES-min-entropy, deterministically expand ES into NE such that each NE[i], and any tuple of NE blocks, is computationally indistinguishable from a uniform random string of the same length to a feasible attacker for whom ES remains unpredictable. A file of exactly <code>NE_SIZE × 32</code> bytes is rejected: no real file achieves min-entropy rate 1.0, so the exact floor cannot satisfy the assumption. Files must strictly exceed this size; it does not independently certify entropy content.</p>
+<blockquote><p><strong>Recommendation (non-normative).</strong> A photo captured by the user's own camera (JPEG, HEIC, or similar) is a suitable entropy source. What qualifies it is provenance, not format or size. A genuine capture contains per-pixel sensor noise that survives compression; that noise is physically random at capture time and cannot be reconstructed by an attacker, even one holding a visually identical photo of the same scene. This satisfies condition (1). A downloaded, screenshotted, or generated image may be equally large and equally incompressible, yet have no min-entropy at all if the attacker can locate the same bytes; size and format never substitute for condition (2). A typical smartphone photo is 2–10 MB, far above the 132 KB floor; the floor is an eligibility rule, not evidence that Assumption ES-min-entropy holds (see §8.3). Callers MAY enforce a larger minimum; PGS enforces only the floor.</p></blockquote>
+<pre><code>Normalize(ES) -&gt; NE[0..4127]
+
+  Inputs:
+    ES       byte string (entropy source)
+
+  Output:
+    NE       array of NE_SIZE 32-byte blocks
+
+  Steps:
+    MUST abort if len(ES) &lt;= NE_SIZE × 32       // protocol size floor for Assumption ES-min-entropy;
+                                                // not a SHAKE-256 constraint (SHAKE-256 accepts any
+                                                // input size). callers MAY enforce a higher minimum.
+                                                // see §4.1 recommendation for guidance on file selection.
+
+    output = SHAKE-256(ES, NE_SIZE * 32)
+
+    For i in 0..NE_SIZE-1:
+      NE[i] = output[i*32 : (i+1)*32]</code></pre>
+<p>SHAKE-256 is an eXtendable Output Function (XOF): it absorbs all of ES before squeezing an arbitrary-length pseudorandom output. Each output block is a deterministic function of the final Keccak state, so no single region of the source is responsible for any single NE[i]. Under Assumption ES-min-entropy, and modeling SHAKE-256 as a random oracle up to the usual Keccak query bounds, the output is computationally indistinguishable from a uniform string of the same length to any feasible attacker for whom ES remains unpredictable. Any individual 32-byte block, or tuple of blocks, is correspondingly pseudorandom to such an attacker. This is a computational, ROM-style claim, not a leftover-hash-lemma extractor claim and not a statistical one: the blocks are deterministic functions of ES and are not independent entropy sources, and an attacker who knows ES learns the entire NE.</p>
+<h3 id="42-ne-block-layout">4.2 NE Block Layout</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Block Range</th><th>Count</th><th>Name</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>0 – 4095</td><td>4096</td><td>—</td><td>Pepper derivation pool</td></tr>
+<tr><td>4096</td><td>1</td><td><code>eb1</code></td><td>Index seed; input to target hash</td></tr>
+<tr><td>4097</td><td>1</td><td><code>eb2</code></td><td>Pepper seed; input to pepper hash</td></tr>
+<tr><td>4098</td><td>1</td><td><code>eb3</code></td><td>Identity block; input to Entropy ID derivation (§7)</td></tr>
+<tr><td>4099</td><td>1</td><td><code>eb4</code></td><td>Key block; reserved for PCS file-encryption key derivation</td></tr>
+<tr><td>4100 – 4127</td><td>28</td><td>—</td><td>Reserved</td></tr>
+</tbody></table></div>
+<p><code>NE_SIZE</code> is a named constant. Protocol versioning is not stored in NE; NE is recomputed on demand from the entropy source, and the algorithm version is determined by the implementation. Version information is stored by the calling system.</p>
+<p><strong>eb3 and eb4.</strong> v1.6 formally names and assigns these two blocks. <code>eb3</code> (NE[4098]) is the sole input to Entropy ID derivation. <code>eb4</code> (NE[4099]) is reserved for PCS encryption key derivation; its exact use is specified in the PCS document, not here. Neither assignment affects existing pepperword derivation: the pepper pipeline uses only blocks 0–4097.</p>
+<p><strong>Future extensibility.</strong> Because SHAKE-256 produces a sequential byte stream, <code>SHAKE-256(ES, N*32)[0:NE_SIZE*32]</code> is identical regardless of N. A future protocol version that defines blocks beyond index <code>NE_SIZE-1</code> can generate a larger output without affecting any existing block indices. The 28 reserved blocks (4100–4127) are a layout declaration for this version only, not a capacity limit.</p>
+<hr>
+<h2 id="5-phase-2-pepper-derivation">5. Phase 2: Pepper Derivation</h2>
+<h3 id="51-target-identifier">5.1 Target Identifier</h3>
+<p>The target identifier is a canonical string derived from the URL the credential authenticates against. It MUST be identical across all derivations for the same credential (see persist-and-freeze later in this section for one specific source of drift).</p>
+<p><strong>Credential URL selection.</strong> Callers SHOULD choose the URL for the account system that validates the credential, not necessarily the product page or the first URL in the login flow. For example, if signing in to <code>https://www.youtube.com/</code> uses the Google Account credential at <code>https://accounts.google.com/</code>, derive <code>targetId</code> from <code>https://accounts.google.com/</code>. Once selected, the resulting <code>targetId</code> MUST remain stable across every derivation for that credential. How a caller persists that value is outside this document's scope.</p>
+<p><strong>Normalization algorithm:</strong> The <code>DeriveTargetId(url)</code> function below produces the canonical <code>targetId</code> for a URL. Every <code>targetId</code> MUST be the output of <code>DeriveTargetId</code> for some URL chosen by the caller at credential creation (the derivation URL, normally the credential URL above); there is no other way to construct one. A caller that needs a custom identifier chooses a custom derivation URL (see the single-label discussion below). Afterward, the stored value is what governs derivation.</p>
+<pre><code>DeriveTargetId(url) -&gt; targetId
+
+  This algorithm is self-contained: it relies on no external URL or
+  internationalized-domain standard, only on the Public Suffix List [PSL] as a
+  data input (see Persist-and-freeze). Hosts are restricted to ASCII; an
+  internationalized domain MUST be supplied in its A-label (&quot;xn--&quot;) form
+  [RFC 5890].
+
+  Accepted shape (the scheme is matched case-insensitively) [RFC 5234]:
+
+       input      = scheme &quot;://&quot; authority [ &quot;/&quot; *char ] [ &quot;?&quot; *char ] [ &quot;#&quot; *char ]
+       scheme     = &quot;http&quot; / &quot;https&quot;
+       authority  = host [ &quot;:&quot; port ]
+       port       = 1*DIGIT
+
+  The shape is descriptive; the numbered steps are normative wherever the
+  two could be read to differ: &quot;char&quot; is any code point (path, query, and
+  fragment are read and discarded unvalidated); step 1&#x27;s quoted scheme
+  literals are matched case-insensitively; the port-0 check compares the
+  port&#x27;s numeric value (&quot;:000&quot; aborts); and the [RFC 1035] citation in
+  step 5b imports label character syntax only, not any label-length limit.
+
+  1. MUST abort if the input does not begin with &quot;http://&quot; or &quot;https://&quot;.
+     Let authority be the characters after &quot;://&quot; up to the first &quot;/&quot;, &quot;?&quot;, or
+     &quot;#&quot; (or end of input). MUST abort if authority is empty or contains &quot;@&quot;
+     (userinfo unsupported) or &quot;[&quot; or &quot;]&quot; (IP-literal hosts, including IPv6,
+     unsupported). The path, query, and fragment are read and discarded, with
+     no percent-decoding.
+
+  2. Split authority at its first &quot;:&quot; into host and port; if there is no &quot;:&quot;,
+     host = authority and there is no port. If a port is present it MUST be a
+     non-empty run of ASCII digits (else abort) and MUST NOT be 0 (else abort);
+     the port is otherwise discarded.
+
+  3. Map each ASCII uppercase letter in host (U+0041..U+005A) to lowercase.
+     MUST abort if host contains any code point outside U+0021..U+007E (this
+     rejects non-ASCII hosts, control characters, and spaces).
+
+  4. If host ends with U+002E (&quot;.&quot;), strip exactly one trailing dot. MUST abort
+     if host is then empty.
+
+  5. Compute hostOut:
+
+     a. IPv4 literal. If host is an IPv4address [RFC 3986], i.e. exactly four
+        decimal octets each 0..255 separated by &quot;.&quot;, then hostOut = host. The
+        PSL lookup does not apply; IP addresses have no registrable domain.
+
+     b. Domain name. Otherwise host MUST be a sequence of &quot;.&quot;-separated labels
+        in which every label is non-empty, contains only ASCII letters, digits,
+        and hyphen, and neither begins nor ends with a hyphen (preferred name
+        syntax, [RFC 1035] §2.3.1 as updated by [RFC 1123] §2.1); MUST abort
+        otherwise. Look up the registrable domain via the [PSL] algorithm,
+        treating public (ICANN) and private entries identically. The [PSL]
+        algorithm&#x27;s implicit default rule (&quot;*&quot;) is not used: only explicit
+        list entries match (including their wildcard and exception rules), so
+        a host under an unknown TLD matches no public suffix. Three cases:
+          - host is exactly a public suffix (e.g. &quot;com&quot;): MUST abort.
+          - a public suffix matches: hostOut = registrable domain (the matched
+            suffix plus one more label).
+          - no public suffix matches (single-label host or unknown TLD):
+            hostOut = host.
+
+  6. Return hostOut.</code></pre>
+<p>The scheme (beyond the http/https check) and the port (beyond the port-0 check) are not otherwise used. A-labels pass through as opaque ASCII labels and are not validated as Punycode, so an unknown or malformed <code>xn--</code> label becomes its own namespace rather than an error.</p>
+<p><strong>Single-label and IP hosts.</strong> A single-label host such as <code>localhost</code> or <code>intranet</code> matches no public suffix and passes through unchanged (step 5b), so all scheme and port variants share one credential: <code>http://localhost:3000</code> and <code>http://localhost:8080</code> both yield <code>localhost</code>. An IPv4 host collapses the same way: <code>http://192.168.1.1</code> and <code>https://192.168.1.1:8443</code> both yield <code>192.168.1.1</code>. If distinct local applications need distinct credentials, the caller derives them from distinct synthetic hosts: <code>http://service-a.localhost</code> and <code>http://service-b.localhost</code> yield the distinct identifiers <code>service-a.localhost</code> and <code>service-b.localhost</code>. How a caller surfaces this choice is a custody-layer concern.</p>
+<p><strong>Credential namespace.</strong> Because scheme and port are discarded, <code>http://example.com</code>, <code>https://example.com</code>, and <code>https://example.com:8080</code> all normalize to <code>example.com</code> and share the same credential. This is by design: a user expects the same password across scheme and port variants of the same site. See §8.1 for the full security discussion.</p>
+<p><strong>Examples:</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Input</th><th>Target identifier</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>https://mail.google.com</code></td><td><code>google.com</code></td><td>Subdomain reduced to registrable domain by PSL</td></tr>
+<tr><td><code>HTTPS://GOOGLE.COM/search?q=foo</code></td><td><code>google.com</code></td><td>Scheme/host lowercased; path discarded</td></tr>
+<tr><td><code>http://example.com:8080/path</code></td><td><code>example.com</code></td><td>Port and path discarded</td></tr>
+<tr><td><code>https://app.example.co.uk</code></td><td><code>example.co.uk</code></td><td>Multi-level public suffix</td></tr>
+<tr><td><code>https://xn--mnchen-3ya.de</code></td><td><code>xn--mnchen-3ya.de</code></td><td>Internationalized domain in A-label form</td></tr>
+<tr><td><code>https://google.com.</code></td><td><code>google.com</code></td><td>One trailing dot stripped (step 4)</td></tr>
+<tr><td><code>http://localhost</code></td><td><code>localhost</code></td><td>Single-label; no public suffix</td></tr>
+<tr><td><code>http://intranet</code></td><td><code>intranet</code></td><td>Single-label; no public suffix</td></tr>
+<tr><td><code>https://app.server.invalid</code></td><td><code>app.server.invalid</code></td><td>Unknown TLD; no PSL entry matches (step 5b)</td></tr>
+<tr><td><code>https://192.168.1.1</code></td><td><code>192.168.1.1</code></td><td>IPv4 literal; PSL skipped</td></tr>
+<tr><td><code>https://app.github.io</code></td><td><code>app.github.io</code></td><td>PSL private entry; app.github.io is eTLD+1</td></tr>
+</tbody></table></div>
+<p><strong>Inputs that MUST abort:</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Input</th><th>Reason</th></tr></thead>
+<tbody>
+<tr><td><code>ftp://example.com</code></td><td>Scheme not http/https (step 1)</td></tr>
+<tr><td><code>https://user:pass@google.com</code></td><td>Userinfo not supported (step 1)</td></tr>
+<tr><td><code>https://[::1]</code></td><td>IP-literal / IPv6 host not supported (step 1)</td></tr>
+<tr><td><code>https://münchen.de</code></td><td>Non-ASCII host (step 3); supply <code>xn--mnchen-3ya.de</code></td></tr>
+<tr><td><code>https://faß.de</code></td><td>Non-ASCII host (step 3); supply the A-label form</td></tr>
+<tr><td><code>https://example.com:abc</code></td><td>Port is not a number (step 2)</td></tr>
+<tr><td><code>https://example.com:0</code></td><td>Explicit port 0 (step 2)</td></tr>
+<tr><td><code>https://com</code></td><td>Host is a bare public suffix (step 5b)</td></tr>
+</tbody></table></div>
+<blockquote><p><strong>Implementation note (non-normative).</strong> This algorithm is platform-independent and uses no platform URL parser or IDNA library. Implement it directly with string operations over the input. Because the accepted input is a small, fully specified grammar and everything outside it aborts, the §9.5 vectors fully pin the parser behaviour and the specific registrable-domain reductions they list; reduction of other hosts depends on the PSL snapshot (see Persist-and-freeze). Implementations MUST NOT delegate parsing to a general-purpose URL library such as <code>Foundation.URL</code> or a WHATWG URL parser, whose edge-case handling is neither identical across platforms nor guaranteed to match this algorithm.</p><p>When a caller constructs a new identifier and needs to validate a candidate <code>targetId</code> directly (for example, a custom identifier typed as a string rather than derived from a URL), the check is: <code>v</code> is a possible <code>targetId</code> iff <code>DeriveTargetId("https://" || v)</code> returns exactly <code>v</code>. The function's outputs are precisely its fixed points under a given PSL snapshot, so this accepts every derivable identifier and rejects everything else (non-ASCII, uppercase, trailing dots, ports, subdomains of PSL-known registrable domains). The check applies only when creating a new identifier. A stored <code>targetId</code> is never re-validated: the fixed-point set varies with the PSL snapshot, so a frozen value can fail the check under a later snapshot while remaining the correct derivation input (see Persist-and-freeze).</p></blockquote>
+<p>Changing this normalization rule is a breaking change: it produces different peppers and therefore different pepperwords for all existing users.</p>
+<p><strong>Persist-and-freeze.</strong> <code>DeriveTargetId</code> has one living external input: the Public Suffix List [PSL], which evolves over time. Two implementations bundling different PSL snapshots, or one implementation before and after a PSL update, may compute different registrable domains for the same host (for example when a new public suffix is added). To prevent silent cross-device divergence:</p>
+<ul>
+<li>Callers MUST persist the <code>DeriveTargetId</code> output (computed from the chosen derivation URL) at the moment the entry is created (or its first password derivation, whichever is earlier) and use that stored value for every subsequent derivation, including all rotation history records.</li>
+<li>Callers MUST NOT recompute or re-validate <code>targetId</code> for an existing record, even if <code>appURL</code> changes or a newer PSL snapshot becomes available. The stored value is treated as opaque from that point forward.</li>
+<li>A minor revision MAY change how new <code>targetId</code> values are constructed (per §1.3 "Derivation-Affecting MINOR Pattern"), but MUST NOT redefine existing stored values.</li>
+</ul>
+<p>This drift cannot affect recovery. Deriving any pepperword requires the persisted <code>creationTimestamp</code>, <code>policy</code>, and <code>targetId</code> (§8.7), so every recoverable entry already carries its frozen <code>targetId</code>; a differing PSL snapshot never re-enters the derivation for such an entry. The only path the PSL is a living input on is the one-time construction of a <code>targetId</code> for a <em>new</em> entry. Two implementations that independently create an entry for the same URL under different snapshots may therefore disagree on that first value, but once either value is stored it is authoritative. This standard does not guarantee that independent implementations compute identical <code>targetId</code> values at creation without sharing the stored metadata.</p>
+<h3 id="52-generatepepper">5.2 GeneratePepper</h3>
+<pre><code>GeneratePepper(NE, targetId) -&gt; pepper
+
+  Inputs:
+    NE        array of NE_SIZE × 32-byte blocks (normalized entropy)
+    targetId  string (canonical target identifier, UTF-8 encoded)
+
+  Output:
+    pepper    32 bytes
+
+  Steps:
+    eb1 = NE[4096]
+    eb2 = NE[4097]
+
+    h   = SHA-256(UTF8(targetId) || eb1)
+    idx = BigInt(h) mod 4096         // result in [0, 4095]
+
+    pepper = SHA-256(NE[idx] || eb2)</code></pre>
+<p><strong>Index computation.</strong> <code>BigInt(h) mod 4096</code> uses standard big-endian byte order. 2^256 is exactly divisible by 4096 (= 2^12), so the distribution over [0, 4095] is perfectly uniform with zero modular bias.</p>
+<p><strong>Role of seed blocks.</strong> <code>eb1</code> functions as a per-user salt for the index computation: two users with the same <code>targetId</code> produce different indices because their <code>eb1</code> values differ. <code>eb2</code> functions as a per-user salt for the final pepper hash. Knowledge of <code>eb1</code> or <code>eb2</code> alone yields no pepper: <code>eb1</code> reveals only the slot index for a given targetId, and deriving that target's pepper additionally requires the selected pool block <code>NE[idx]</code> (see §8.2).</p>
+<p><strong>Design rationale.</strong> PGS does not derive <code>pepper</code> directly from <code>targetId</code>. Instead, <code>targetId</code> selects one block from a per-user pepper pool derived independently of any target. This is deliberate. It keeps the underlying pepper inventory target-agnostic, so implementations can reason about pepper material without embedding the relying app identifier into the pepper derivation itself. The tradeoff is that distinct targets can collide onto the same pool slot. PGS accepts that tradeoff to preserve this separation: target-specificity enters at slot selection, while the underlying pepper material remains independent of any one app.</p>
+<hr>
+<h2 id="6-phase-3-pepperword-generation">6. Phase 3: Pepperword Generation</h2>
+<h3 id="61-hpm-construction">6.1 HPM Construction</h3>
+<p>Human Passphrase Material (HPM) binds the user's passphrase to an app-specific timestamp:</p>
+<pre><code>HPM = uint64_be(creationTimestamp) || UTF8(NFC(passphrase))</code></pre>
+<p><code>creationTimestamp</code> MUST be the Unix timestamp in milliseconds at which this app entry was created, or at which the password was last rotated, encoded as an unsigned 64-bit big-endian integer. Encoding <code>creationTimestamp</code> as an 8-byte big-endian integer makes HPM an injective function of <code>(creationTimestamp, passphrase)</code>: distinct input pairs always produce distinct byte strings. The passphrase is normalized to NFC before UTF-8 encoding (§2.6).</p>
+<p><code>creationTimestamp</code> is not secret; it is stored in app metadata and contributes no entropy to HPM. The entropy in HPM comes entirely from <code>passphrase</code>. Within a single app entry, every rotation MUST advance <code>creationTimestamp</code> so that two rotation events of the same entry can never share a timestamp. Across distinct entries, two entries that happen to share <code>(targetId, passphrase, policy, creationTimestamp)</code> produce identical pepperwords. That is the deterministic-protocol outcome of identical inputs, not a security flaw: the two entries denote the same credential under the same name. Interactive entry creation is unlikely to produce two entries in the same millisecond; bulk-import code paths SHOULD preserve original creation times and avoid clamping to a low-resolution clock.</p>
+<p><strong>Example.</strong> <code>passphrase = "hunter2"</code>, <code>creationTimestamp = 1700000000000</code>:</p>
+<pre><code>HPM = uint64_be(1700000000000) || UTF8(&quot;hunter2&quot;)
+    = 0x0000018BCFE56800 68756E74657232</code></pre>
+<p><strong>Rotation.</strong> When a user rotates the password for a specific app, <code>creationTimestamp</code> is set to a new value (e.g., current time). This changes HPM for that app only, producing a fresh derivation for that app while all other apps remain unchanged (in a small output space such as a PIN, the new value can occasionally equal the old one). Recovering a previous pepperword requires the old <code>creationTimestamp</code>, along with the <code>policy</code> and <code>targetId</code> in effect at that generation (see §8.11). Implementations MAY retain the derivation metadata from each rotation to support recovery of past pepperwords.</p>
+<h3 id="62-password-policy">6.2 Password Policy</h3>
+<p>A <strong>password policy</strong> (<code>policy</code>) is a tuple <code>&lt;composition, compositionPattern, prefix, postfix&gt;</code> that constrains the pepperword output. Each component is defined below.</p>
+<p>A <strong>composition</strong> is an ordered list of units <code>[&lt;C₁, m₁&gt;, ..., &lt;Cₙ, mₙ&gt;]</code>. A composition MUST contain at least one unit. Each unit <code>&lt;C, m&gt;</code> specifies <code>m</code> Unicode scalars drawn from character multiset <code>C</code>. <code>C</code> MUST be non-empty and is an ordered NFC-normalized string interpreted as a sequence of Unicode scalars (§2.6). <code>m</code> MUST be a positive integer. Duplicate scalars increase the probability of that scalar being selected. The total output length is <code>m₁ + ... + mₙ</code> scalars and MUST be no greater than 98 scalars (§6.4). In practice the §6.3 entropy budget binds first for large alphabets: the composition space may not exceed 2^256, which caps effective length around 38 scalars over the 95-character printable-ASCII range.</p>
+<p><strong>Examples.</strong></p>
+<p>A typical 14-character policy with mixed character classes:</p>
+<pre><code>[&lt;&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;, 10&gt;,
+ &lt;&quot;0123456789&quot;, 2&gt;,
+ &lt;&quot;!@#$%^&amp;*&quot;, 2&gt;]</code></pre>
+<p>The composition-encoded string is 10 letters, 2 digits, and 2 special characters in that order; the final pepperword permutes them (§6.4).</p>
+<p>A digit-only PIN of length 6:</p>
+<pre><code>[&lt;&quot;0123456789&quot;, 6&gt;]</code></pre>
+<p>A contrived example of multiset weighting (8 characters drawn from <code>"aaab"</code>):</p>
+<pre><code>[&lt;&quot;aaab&quot;, 8&gt;]</code></pre>
+<p>Because <code>'a'</code> appears 3 times in <code>C</code>, each position selects <code>'a'</code> with probability ¾ and <code>'b'</code> with probability ¼.</p>
+<p>A <strong>compositionPattern</strong> is a regular expression using a normative subset of RE2 syntax [RE2] matched against the permuted core returned by <code>Permute</code> (§6.4). A match is an <strong>unanchored</strong> substring match: the pattern succeeds if it matches anywhere within the core string. To require a full-string match, use <code>^</code> and <code>$</code> anchors explicitly. To impose no positional constraint, use <code>.*</code>. An absent <code>compositionPattern</code> defaults to <code>.*</code>.</p>
+<p><strong>Grammar (normative).</strong> After NFC normalization (§2.6), the pattern source MUST match the <code>pattern</code> rule below ([RFC 5234], interpreted over Unicode scalars rather than octets). A pattern that does not match this grammar, or that violates any constraint that follows it, MUST be rejected at policy construction time. The grammar is a strict subset of RE2 syntax [RE2], chosen so that every construct it admits behaves identically in every conforming regex engine.</p>
+<pre><code>pattern       = alternation
+alternation   = concat *( &quot;|&quot; concat )
+concat        = *piece                    ; empty concat matches the empty string
+piece         = anchor / ( atom [ quantifier ] )
+anchor        = &quot;^&quot; / &quot;$&quot;                 ; anchors take no quantifier
+atom          = literal / escape / &quot;.&quot; / class / group
+group         = &quot;(&quot; alternation &quot;)&quot;
+literal       = &lt;any Unicode scalar except reserved&gt;
+reserved      = &quot;\&quot; / &quot;.&quot; / &quot;[&quot; / &quot;]&quot; / &quot;(&quot; / &quot;)&quot; / &quot;{&quot; / &quot;}&quot;
+              / &quot;*&quot; / &quot;+&quot; / &quot;?&quot; / &quot;|&quot; / &quot;^&quot; / &quot;$&quot;
+escape        = &quot;\&quot; punct                 ; denotes punct literally
+punct         = %x21-2F / %x3A-40 / %x5B-60 / %x7B-7E    ; ASCII punctuation
+quantifier    = &quot;*&quot; / &quot;+&quot; / &quot;?&quot; / counted
+counted       = &quot;{&quot; count [ &quot;,&quot; [ count ] ] &quot;}&quot;     ; {n}, {n,}, {n,m}
+count         = &quot;0&quot; / ( %x31-39 [ DIGIT ] )         ; canonical decimal
+class         = &quot;[&quot; [ &quot;^&quot; ] class-items &quot;]&quot;
+class-items   = &quot;-&quot; *class-item [ &quot;-&quot; ]   ; &quot;-&quot; at a class edge is a literal
+              / 1*class-item [ &quot;-&quot; ]
+class-item    = class-atom [ &quot;-&quot; class-atom ]       ; scalar or inclusive range
+class-atom    = escape / class-literal
+class-literal = &lt;any Unicode scalar except &quot;\&quot; / &quot;[&quot; / &quot;]&quot; / &quot;-&quot;&gt;</code></pre>
+<p><strong>Constraints.</strong> Each of the following MUST hold, checked at policy construction:</p>
+<ul>
+<li>Every <code>count</code> value is at most 98 (the maximum core length, §6.4), and in <code>{n,m}</code> form <code>n ≤ m</code>. Counts are canonical decimal with no leading zeros (the <code>count</code> rule): <code>a{01}</code> is rejected, <code>a{0}</code> is not. The 98 bound also stays far below the repetition limits where engines diverge (RE2 rejects counts above 1000; ICU accepts them).</li>
+<li>In a range <code>class-atom "-" class-atom</code>, the first atom's scalar value is less than or equal to the second's: <code>[z-a]</code> is rejected.</li>
+<li>A class MUST NOT contain two adjacent unescaped <code>-</code> scalars. Together with the grammar this rejects every set-subtraction spelling, including <code>[a--b]</code>.</li>
+<li>A class MUST NOT contain two adjacent unescaped <code>&amp;</code> scalars (<code>&amp;&amp;</code> is ICU set intersection). A single <code>&amp;</code> is a literal, so <code>[!@#$%^&amp;*]</code> remains valid.</li>
+</ul>
+<p><strong>Semantics.</strong> A <code>literal</code>, <code>class-literal</code>, or <code>escape</code> matches exactly its scalar (an escape denotes the escaped punctuation scalar itself). <code>.</code> matches any single scalar except U+000A. A <code>class</code> matches one scalar contained in the union of its atoms and ranges, where a range <code>lo-hi</code> denotes all scalars from <code>lo</code> through <code>hi</code> inclusive by scalar value; a negated class <code>[^...]</code> matches one scalar not in that union. A <code>^</code> outside a class matches at the start of the core and <code>$</code> at its end (the alphabet rule below makes line-mode ambiguity unreachable); a <code>^</code> inside a class is negation only as the first scalar after <code>[</code>, and a literal elsewhere. Quantifiers bind to the immediately preceding <code>atom</code>: <code>*</code> is zero or more, <code>+</code> one or more, <code>?</code> zero or one, <code>{n}</code> exactly <code>n</code>, <code>{n,}</code> at least <code>n</code>, <code>{n,m}</code> between <code>n</code> and <code>m</code> inclusive. <code>|</code> is alternation; <code>(...)</code> groups. Quantifiers are greedy, but only match existence is observable (§6.4 tests whether a match exists, never where), so greediness cannot affect derivation. Matching operates over Unicode scalar positions; implementations MUST NOT match by UTF-16 code unit or by byte.</p>
+<p>Everything outside this grammar MUST be rejected at policy construction. This excludes, among others: letter and digit escapes (<code>\d</code>, <code>\w</code>, <code>\s</code>, <code>\n</code>, and backreferences such as <code>\1</code>), Unicode property escapes (<code>\p{...}</code>), POSIX classes (<code>[[:alpha:]]</code>), nested classes, class set operations (<code>&amp;&amp;</code>, <code>--</code>), group modifiers and inline flags (<code>(?:...)</code>, <code>(?i)</code>, named groups), lazy and possessive quantifiers (<code>a*?</code>, <code>a*+</code>), word boundaries (<code>\b</code>), and quoting (<code>\Q...\E</code>).</p>
+<p><strong>Alphabet.</strong> Every scalar in every composition <code>charSet</code> (and therefore in the permuted core) MUST be an assigned Unicode scalar whose general category is not Cc (Control), Cf (Format), Zl (Line_Separator), or Zp (Paragraph_Separator); a <code>charSet</code> containing such a scalar, or an unassigned (Cn) scalar, MUST be rejected at policy construction. The Cc/Zl/Zp exclusion removes the only in-subset operators on which engines disagree: <code>.</code> (which excludes additional line terminators under ICU) and the anchors <code>^</code>/<code>$</code> (whose end-of-line behaviour differs) become unambiguous because the core never contains a line terminator. The Cf and Cn exclusion makes "printable" precise: invisible format characters such as zero-width joiners and directional marks are not permitted. Category assignment is evaluated against the implementation's own Unicode database. A scalar that a newer Unicode version assigns may therefore be accepted by an up-to-date implementation and rejected (as Cn) by an older one. This affects only whether such a <code>charSet</code> is accepted at construction, not the match semantics or derived password of an accepted policy: matching in this subset never consults the category database (there is no <code>\p{...}</code>), and the line-terminator scalars on which <code>.</code>/<code>^</code>/<code>$</code> depend have fixed categories across all Unicode versions. This is the same shape of living-input drift as the [PSL] in §5.1, resolved the same way: documented, not pinned.</p>
+<p>Within this subset and over this alphabet, every conforming engine produces identical match results, so <code>compositionPattern</code> matching is reproducible across independent implementations. There is no out-of-subset behaviour left to be implementation-defined: implementations MUST reject anything outside the subset at construction. This reproducibility comes from the engine-agnostic subset, not from persistence: the stored <code>compositionPattern</code> is pattern <em>text</em> that is re-matched on every derivation, so freezing it does not by itself freeze the matching semantics — only the subset restriction does.</p>
+<p><strong>Pattern vectors (normative).</strong> Implementations MUST accept each of these patterns at policy construction:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Accepted pattern</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>.*</code></td><td>No positional constraint</td></tr>
+<tr><td><code>.*[!@#$%^&amp;*].*</code></td><td><code>^</code>, <code>&amp;</code>, <code>$</code>, <code>*</code> are literals inside a class at these positions</td></tr>
+<tr><td><code>^[A-Za-z].*$</code></td><td>Anchored full-string match</td></tr>
+<tr><td><code>x{0,98}</code></td><td>Boundary count values</td></tr>
+<tr><td><code>[-_.]</code></td><td><code>-</code> at a class edge is a literal; <code>.</code> is a literal inside a class</td></tr>
+<tr><td><code>\$\{\\</code></td><td>Escaped ASCII punctuation literals</td></tr>
+<tr><td><code>[ä-ö]</code></td><td>Unicode scalar range (U+00E4 through U+00F6)</td></tr>
+<tr><td><code>^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$</code></td><td><code>-</code> outside a class is a literal</td></tr>
+</tbody></table></div>
+<p>One further accepted vector is stated outside the table to avoid the table's column delimiter: the pattern <code>^([0-9]|[a-f]){2,14}$</code> — grouping, alternation, and counted repetition — MUST be accepted. (The <code>|</code> here is the alternation metacharacter, not an escaped literal.)</p>
+<p>Implementations MUST reject each of these patterns at policy construction:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Rejected pattern</th><th>Reason</th></tr></thead>
+<tbody>
+<tr><td><code>[a--b]</code></td><td>Adjacent <code>-</code> in a class (set subtraction not provided)</td></tr>
+<tr><td><code>[a-b-c]</code></td><td><code>-</code> neither at a class edge nor forming a range</td></tr>
+<tr><td><code>[z-a]</code></td><td>Reversed range</td></tr>
+<tr><td><code>[]</code></td><td>Empty class</td></tr>
+<tr><td><code>a{01}</code></td><td>Leading zero in count</td></tr>
+<tr><td><code>a{2,1}</code></td><td><code>n &gt; m</code></td></tr>
+<tr><td><code>a{99}</code></td><td>Count above 98</td></tr>
+<tr><td><code>a{1</code></td><td>Unterminated counted repetition; bare <code>{</code> is reserved</td></tr>
+<tr><td><code>a}</code></td><td>Bare <code>}</code> is reserved (write <code>\}</code>)</td></tr>
+<tr><td><code>[[:digit:]]</code></td><td>POSIX class; unescaped <code>[</code> inside a class</td></tr>
+<tr><td><code>[a[b]]</code></td><td>Nested class</td></tr>
+<tr><td><code>[a&amp;&amp;b]</code></td><td>Class set intersection</td></tr>
+<tr><td><code>\d</code></td><td>Letter escape</td></tr>
+<tr><td><code>\p{L}</code></td><td>Unicode property escape</td></tr>
+<tr><td><code>(a)\1</code></td><td>Backreference (digit escape)</td></tr>
+<tr><td><code>(?:a)</code></td><td>Group modifier; <code>?</code> cannot follow <code>(</code></td></tr>
+<tr><td><code>a*?</code></td><td>Lazy quantifier (quantifier cannot follow a quantifier)</td></tr>
+<tr><td><code>^*</code></td><td>Quantified anchor</td></tr>
+<tr><td><code>(a</code></td><td>Unbalanced group</td></tr>
+</tbody></table></div>
+<p>A <strong>prefix</strong> is a fixed string prepended to the permuted core. A <strong>postfix</strong> is a fixed string appended to it. Both default to <code>""</code>. The final pepperword is <code>prefix || core || postfix</code>. Prefix and postfix are NFC-normalized (§2.6); they are caller-supplied literals, not permuted and not matched by compositionPattern. A compositionPattern therefore matches the core only.</p>
+<h3 id="63-compositionencode">6.3 CompositionEncode</h3>
+<p><code>CompositionEncode</code> consumes 256 bits of input entropy and produces a fixed-length string whose characters are drawn from the policy's <code>composition</code>. Its output is the pre-permutation core of the pepperword (see §6.4 for permutation and §6.5 for the full pipeline).</p>
+<pre><code>CompositionEncode(comp, h) -&gt; string
+
+  Inputs:
+    comp   ordered list of units [&lt;C₁,m₁&gt;, ..., &lt;Cₙ,mₙ&gt;]
+    h      32 bytes
+
+  Output:
+    string of length m₁ + m₂ + ... + mₙ satisfying the composition
+
+  Steps:
+    // bits_needed = ceil(m₁·log₂|C₁| + m₂·log₂|C₂| + ... + mₙ·log₂|Cₙ|)
+    // Conceptually: abort if bits_needed &gt; 256.
+    // Written in integer form below to avoid floating-point divergence:
+    MUST abort if |C₁|^m₁ · |C₂|^m₂ · ... · |Cₙ|^mₙ &gt; 2^256
+
+    q      = BigInt(h)
+    result = &quot;&quot;
+
+    For i = 1 to n:
+      unit_str, q = CompositionUnitEncode(Cᵢ, mᵢ, q)
+      result = unit_str || result    // prepend: iterating forward but prepending means
+                                     // unit n&#x27;s characters occupy the first positions in output,
+                                     // unit 1&#x27;s characters occupy the last positions.
+
+    Return result</code></pre>
+<p><code>CompositionEncode</code> treats <code>h</code> as a base-<code>|Cᵢ|</code> big-integer digit stream, drawing one character per output position from the corresponding unit's multiset. The abort check ensures <code>h</code> carries enough entropy to address the composition space; if the composition demands more (e.g., a very long output over a large alphabet), the function aborts. Each unit's characters are prepended to the result, so unit <code>n</code> occupies the leading positions and unit 1 the trailing positions.</p>
+<pre><code>CompositionUnitEncode(C, m, q) -&gt; (string, q_remainder)
+
+  Inputs:
+    C    character multiset (ordered string, |C| ≥ 1)
+    m    positive integer
+    q    BigInteger
+
+  Output:
+    string of length m; q_remainder is the remaining BigInteger after encoding
+
+  Steps:
+    result = &quot;&quot;
+    For i = 0 to m-1:
+      r      = q mod |C|
+      q      = q / |C|      // integer division, truncating toward zero
+      result = C[r] || result
+    Return (result, q)</code></pre>
+<h3 id="64-permute">6.4 Permute</h3>
+<p><code>Permute</code> deterministically shuffles its input string until the result matches <code>compositionPattern</code>. It is the second half of pepperword generation, complementing §6.3 CompositionEncode: that function determines which characters appear; <code>Permute</code> determines where they appear. The shuffle is a Fisher-Yates permutation seeded by <code>ba</code>; if the first permutation does not match, a hash chain reseeds and retries up to <code>MAX_TRIALS</code> times.</p>
+<pre><code>Permute(st, compositionPattern, ba, MAX_TRIALS) -&gt; string
+
+  Inputs:
+    st                  string; MUST have len(st) ≤ 98
+    compositionPattern  compiled regular expression (matched against the permuted candidate only)
+    ba                  32 bytes (permutation entropy)
+    MAX_TRIALS          positive integer (fixed at 5000 by §6.5; not caller-tunable)
+
+  Output:
+    permuted string matching compositionPattern
+
+  Steps:
+    h   = SHA-512(ba)       // 64 bytes
+    sum = 0
+
+    While sum &lt; MAX_TRIALS:
+      P  = GeneratePermutation(len(st), h)
+      s  = string where s[i] = st[P[i]] for i in 0..len(st)-1
+      h  = SHA-512(h || UTF8(s))
+      sum = sum + 1
+      If s matches compositionPattern (unanchored RE2 match): return s
+
+    MUST abort with error &quot;maximum permutation trials exceeded&quot;</code></pre>
+<p>The initial <code>SHA-512(ba)</code> step widens the 32-byte (256-bit) input into a 64-byte seed for <code>GeneratePermutation</code>. This is a deterministic expansion, not an entropy increase: the permutation is seeded by the 256 bits of <code>ba</code>, which is the relevant permutation entropy regardless of the 512-bit seed width.</p>
+<p>The <code>len(st) ≤ 98</code> cap follows from the 512-bit seed width: <code>log₂(98!) ≈ 511.5 ≤ 512 &lt; 518.1 ≈ log₂(99!)</code>. The cap ensures the 512-bit seed integer can represent every permutation index; it does not make the distribution uniform. The seed carries only 256 bits of entropy, so at most 2^256 of the 98! permutations are reachable, and the modular reduction adds further bias. See §8.8.</p>
+<p><strong>MAX_TRIALS rationale.</strong> For any reasonable policy, permutations converge quickly: a pattern requiring one character class to appear anywhere succeeds on the first trial; a pattern constraining the first two positions to specific classes has ~3% success probability, converging within ~100 trials on average. <code>MAX_TRIALS = 5000</code> provides extreme headroom above all realistic policies while still defining a hard failure bound. A higher value would not help a reasonable policy and would only delay failure for a misconfigured or unsatisfiable one. MAX_TRIALS is a fixed protocol constant, not an implementation knob: two implementations with different limits would diverge (password vs abort) on a pattern needing more trials than the lower limit. For given inputs the outcome is deterministic, but a pattern whose per-trial match probability is near 1/MAX_TRIALS can succeed for one entry and abort for another; an abort therefore indicates a defective policy, not a transient error to retry.</p>
+<pre><code>GeneratePermutation(n, ba) -&gt; P[0..n-1]
+
+  Inputs:
+    n    positive integer (number of elements)
+    ba   byte string (≥ ceil(log₂(n!)) bits)
+
+  Output:
+    permutation P — a list where {P[0],...,P[n-1]} = {0,...,n-1}
+
+  Steps:
+    // bits_needed = log₂(n!) = log₂(n·(n-1)·...·2)
+    // Conceptually: abort if bits_needed &gt; len(ba)·8.
+    // Written in integer form below to avoid floating-point divergence:
+    MUST abort if n! &gt; 2^(len(ba)·8)
+
+    q = BigInt(ba)
+    P = [0, 1, 2, ..., n-1]
+
+    For i = n-1 down to 1:
+      r    = q mod (i+1)
+      q    = q / (i+1)
+      swap P[i] and P[r]
+
+    Return P</code></pre>
+<h3 id="65-generatepepperword">6.5 GeneratePepperword</h3>
+<p><code>GeneratePepperword</code> is the top-level pepperword derivation function. It combines the target-specific <code>pepper</code> (§5.2) with the user's HPM (§6.1) under HMAC-SHA-512, then splits the 64-byte output: 256 bits drive <code>CompositionEncode</code> (§6.3) to fix which characters appear, and 256 bits drive <code>Permute</code> (§6.4) to fix where they appear. The result is wrapped with <code>prefix</code> and <code>postfix</code> to produce the final pepperword.</p>
+<pre><code>GeneratePepperword(pepper, passphrase, creationTimestamp, policy) -&gt; pepperword
+
+  Inputs:
+    pepper       32 bytes (from GeneratePepper)
+    passphrase   string (no algorithmic length limit; HMAC-SHA-512 accepts arbitrary message length)
+    creationTimestamp    uint64 (Unix timestamp in milliseconds; MUST be unique among the rotation events of one app entry (see §6.1))
+    policy       &lt;composition, compositionPattern, prefix, postfix&gt;
+
+  Constants:
+    MAX_TRIALS = 5000
+
+  Output:
+    pepperword   string satisfying policy
+    error        if no permutation satisfies compositionPattern after MAX_TRIALS unsuccessful attempts
+
+  Steps:
+    HPM = uint64_be(creationTimestamp) || UTF8(NFC(passphrase))
+
+    h  = HMAC-SHA-512(key=pepper, message=HPM)
+    h1 = h[0:32]      // 256 bits — composition entropy
+    h2 = h[32:64]     // 256 bits — permutation entropy
+
+    encoded    = CompositionEncode(policy.composition, h1)
+    core       = Permute(encoded, policy.compositionPattern, h2, MAX_TRIALS)
+    pepperword = policy.prefix || core || policy.postfix</code></pre>
+<hr>
+<h2 id="7-entropy-id-derivation">7. Entropy ID Derivation</h2>
+<h3 id="71-purpose">7.1 Purpose</h3>
+<p><code>entropyID</code> is a 24-character collision-resistant system identifier for a PGS entropy instance, derived deterministically from <code>NE[4098]</code> (the identity block, <code>eb3</code>). See §8.6 for security properties (preimage resistance, fingerprint risk against candidate-file corpora, two-factor implications).</p>
+<p>A 6-character display alias, <code>profileID = entropyID[0:6]</code>, is defined in §7.3 for human-readable contexts.</p>
+<h3 id="72-generateentropyid">7.2 GenerateEntropyID</h3>
+<pre><code>GenerateEntropyID(NE) -&gt; entropyID
+
+  Inputs:
+    NE         array of NE_SIZE × 32-byte blocks (normalized entropy)
+
+  Output:
+    entropyID  string (24 characters, lowercase base32)
+
+  Steps:
+    eb3       = NE[4098]
+    data      = eb3 || UTF8(&quot;pgs-entropy-id&quot;)
+    h         = SHA-256(data)
+    entropyID = base32_lowercase(h[0:15])    // 15 bytes → 24 base32 characters (no padding)</code></pre>
+<p><strong>Output format.</strong> The 15-byte truncated SHA-256 output encodes to exactly 24 lowercase base32 characters (RFC 4648 alphabet lowercased: <code>a–z</code>, <code>2–7</code>; no padding). Example: <code>l33vfvfx47ihsoworovvd5o6</code> (see §9.6 for the derivation vector).</p>
+<p><strong>Domain separation.</strong> The label <code>"pgs-entropy-id"</code> is appended to <code>eb3</code> before hashing. This prevents any block assigned to a different purpose from accidentally producing the same hash output, even in future protocol revisions that assign additional derivations to <code>eb3</code>.</p>
+<p><strong>Stability.</strong> <code>entropyID</code> is frozen within the PGS v1.x series. Any change to the derivation (label string, truncation length, or encoding) requires a MAJOR bump.</p>
+<h3 id="73-profileid">7.3 ProfileID</h3>
+<pre><code>profileID = entropyID[0:6]    // first 6 characters of entropyID</code></pre>
+<p><code>profileID</code> inherits the lowercase base32 alphabet from <code>entropyID</code>. No additional hashing or encoding step is required.</p>
+<p><strong>Purpose.</strong> <code>profileID</code> may replace <code>entropyID</code> in human-facing contexts where a 6-character lowercase base32 prefix (30 bits, with birthday-bound collision risk) is sufficient. Use the full <code>entropyID</code> where global uniqueness or durable keying is required.</p>
+<hr>
+<h2 id="8-security-considerations">8. Security Considerations</h2>
+<h3 id="81-security-goals">8.1 Security Goals</h3>
+<p>PGS is designed to achieve the following properties:</p>
+<p><strong>Deterministic recovery.</strong> Given the same entropy source, targetId, passphrase, creationTimestamp, and policy, any compliant implementation produces the same pepperword.</p>
+<p><strong>Target isolation.</strong> The pepperword for one (user, target) pair is computationally independent from the pepperword for any other pair. The targetId is a registrable-domain credential namespace: isolation is per registrable domain, not per subdomain, scheme, port, or application. This means the following URL variants all produce the same targetId and therefore the same credential:</p>
+<ul>
+<li><code>http://example.com</code> and <code>https://example.com</code> → <code>example.com</code></li>
+<li><code>https://example.com</code> and <code>https://example.com:8080</code> → <code>example.com</code></li>
+<li><code>https://app.example.com</code> and <code>https://example.com</code> → <code>example.com</code></li>
+</ul>
+<p>This is intentional. A user expects the same password to work at <code>http://</code> and <code>https://</code> of the same site, and at non-default ports serving the same application. Collapsing scheme and port into the registrable domain produces a single credential per site rather than one per URL variant. The tradeoff is that a server running distinct applications on different ports of the same domain will share a PGS credential; if this is undesirable, the caller derives distinct <code>targetId</code> values from distinct synthetic derivation URLs such as <code>http://service-a.localhost</code> (§5.1). A subdomain of the domain itself cannot serve: no URL yields <code>app1.example.com</code>, because PSL reduction collapses every host under a PSL-known registrable domain to that domain. A <code>.localhost</code> host escapes this because no PSL entry matches it, so the whole host passes through (§5.1).</p>
+<p>An attacker who controls a non-canonical variant of a target (e.g., <code>http://example.com</code> via DNS hijacking or TLS stripping, or a hostile service on <code>https://example.com:8080</code>) can phish the credential shared with the canonical <code>https://example.com</code>, since all variants produce the same <code>targetId</code>. Modern HTTPS enforcement (HSTS, browser warnings) makes the http-strip case rare in practice, but the risk remains inherent to the scheme- and port-agnostic credential namespace.</p>
+<p>The primary mechanism for isolation across different registrable domains is pepper separation: each app derives a 32-byte HMAC key via the hash-based index lookup. These keys are usually, but not always, distinct — the pepper pool has 4096 slots, so two targets collide with probability ≈ 1-in-4096 (see §5.2). <code>creationTimestamp</code> provides a secondary layer: distinct timestamps make HPMs differ across app entries even if a pepper collision occurs. creationTimestamp collisions are unlikely in ordinary use (see §6.1); even if a collision occurred, a security consequence additionally requires a pepper collision (~1-in-4096), making the joint probability negligible.</p>
+<p><strong>Two-factor protection.</strong> Neither the entropy source alone nor the passphrase alone is sufficient to derive a pepperword. An attacker must compromise both. (The entropy source alone is sufficient to derive all peppers; the passphrase is required to complete derivation.)</p>
+<p><strong>No forward secrecy.</strong> PGS makes no forward secrecy guarantees. If both secrets (entropy source and passphrase) are simultaneously compromised, all past and future pepperwords are exposed. This is a fundamental property of deterministic derivation: it is a design constraint, not a flaw.</p>
+<p><strong>No authentication.</strong> PGS does not authenticate the identity of the user to a relying application. It produces a credential string that must be submitted through the relying application's normal authentication channel.</p>
+<h3 id="82-threat-model">8.2 Threat Model</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Attacker capability</th><th>Can derive</th><th>Cannot derive</th></tr></thead>
+<tbody>
+<tr><td>Entropy source only</td><td>All peppers (<code>GeneratePepper</code> is computable); Entropy ID</td><td>Any pepperword (requires passphrase)</td></tr>
+<tr><td>Passphrase only</td><td>Nothing</td><td>Peppers, pepperwords, or Entropy ID (requires NE)</td></tr>
+<tr><td>Both entropy + passphrase</td><td>All pepperwords (given each target's <code>creationTimestamp</code> and <code>policy</code>); Entropy ID</td><td>A specific user's pepperword without that target's <code>creationTimestamp</code> and <code>policy</code></td></tr>
+<tr><td>One pepperword (e.g. phishing)</td><td>That one credential</td><td>Other targets' pepperwords</td></tr>
+<tr><td>Per-entry metadata only (<code>creationTimestamp</code>, <code>policy</code>, <code>targetId</code>, <code>entropyID</code>)</td><td>Nothing</td><td>Any pepperword (requires entropy source and passphrase)</td></tr>
+<tr><td><code>eb1</code> or <code>eb2</code> in isolation</td><td><code>idx</code> for any targetId (if <code>eb1</code> known)</td><td>Any pepper (requires <code>NE[idx]</code>)</td></tr>
+<tr><td><code>eb3</code> in isolation</td><td>Entropy ID</td><td>Any pepper, pepperword, or other eb-block derivation (requires other NE blocks)</td></tr>
+<tr><td>Entropy source + one pepperword (or a breached verifier of one)</td><td>Offline brute-force feasible: passphrase brute-force at HMAC-SHA-512 speed in the worst case (see §8.4) plus ~35 bits per year of <code>creationTimestamp</code> uncertainty</td><td>Other pepperwords (requires guessable passphrase)</td></tr>
+<tr><td>Entropy source + one pepperword (or a breached verifier of one) + per-entry metadata for all entries</td><td>Offline brute-force of passphrase at HMAC-SHA-512 speed in the worst case (see §8.4); if passphrase is weak, all pepperwords for all entries</td><td>—</td></tr>
+</tbody></table></div>
+<h3 id="83-entropy-source-security">8.3 Entropy Source Security</h3>
+<p>The security of every derived pepperword depends entirely on the entropy source being secret. An attacker who can reconstruct the entropy source (for example, because the "keepsafe photo" was posted publicly), combined with the passphrase and per-entry metadata (<code>creationTimestamp</code>, <code>policy</code>, <code>targetId</code>), can derive all pepperwords.</p>
+<p>Most social platforms re-encode images on upload and strip metadata, so a publicly posted version typically differs byte-for-byte from the original. The attack therefore requires a byte-exact copy of the file (e.g., a lossless backup or cloud-sync leak), not merely a visually identical copy.</p>
+<p>The entropy source MUST be:</p>
+<ul>
+<li>Not publicly available or shared as the byte-exact original (re-encoded copies, e.g. social-media uploads, typically differ)</li>
+<li>Not reproducible from public information (not a downloaded wallpaper, not a screenshot of a public page)</li>
+</ul>
+<p>The entropy source must strictly exceed <code>NE_SIZE × 32</code> bytes (132,096 bytes); files at exactly this size are rejected. This is a necessary but not sufficient condition for Assumption ES-min-entropy. Size alone does not guarantee security: a 132 KB file of all-zero bytes provides no entropy. The security requirement is that the entropy source be unguessable, not merely large.</p>
+<p><strong>Byte-identity across devices and over time.</strong> Every derivation from a given entropy source requires byte-identical input. <code>Normalize</code> (§4.1) is a pure function of its input, so any change to the bytes produces a different <code>NE</code>, and therefore a different <code>entropyID</code> and a different pepper and pepperword for every target. The failure mode is silent: drifted bytes are still a valid entropy source, just a different one, so no step in the pipeline raises an error. A client that reads drifted bytes derives a self-consistent but entirely separate identity. Any record keyed by the original <code>entropyID</code> is simply not found, indistinguishable from a fresh account; any credential re-derived for an existing target no longer matches, indistinguishable from a wrong entropy source. No surfaced error points at byte drift as the cause.</p>
+<p>The hazard usually arises on the read path, not the storage or transport layer. Media-library APIs commonly expose several versions of the same asset (original, post-edit, compatibility-format) and return different bytes depending on which version is requested. A user-initiated edit in a photo manager produces a post-edit version that differs from the original; share or export workflows often re-encode; platform-version upgrades may change which version a given API returns by default; and an asset round-tripped through a third-party app is almost always re-encoded.</p>
+<p>Implementations SHOULD capture the entropy source bytes at registration and persist those captured bytes for all subsequent derivations, rather than re-reading from a media-library reference (asset identifier, file path, cloud handle) that may return different bytes later. An implementation that does re-read from such a reference MUST request the original-asset bytes explicitly, not a derived, re-encoded, or post-edit version, and MUST verify the returned bytes are byte-identical to those used at registration before performing any derivation. Surfacing an explicit "entropy source has changed" error is preferable to silently deriving against new bytes.</p>
+<h3 id="84-passphrase-security">8.4 Passphrase Security</h3>
+<p>The passphrase is the second factor. If the entropy source is compromised, the passphrase is the sole remaining protection for all pepperwords. Users SHOULD choose a passphrase that is strong, memorable, and not reused elsewhere.</p>
+<p>No key stretching is applied during pepperword derivation. <code>HMAC-SHA-512(key=pepper, message=HPM)</code> is a single hash evaluation (~1–2 µs on a mobile SoC). This is a deliberate choice. PGS derives pepperwords on demand; every derivation is user-facing and battery-visible. A memory-hard KDF such as Argon2id (m=65536, t=3) would require ~100–200 ms and sustained memory-bandwidth activity per derivation, measurably impacting energy consumption on mobile devices. This cost is not justified by the security gain, for the reasons below.</p>
+<p><strong>Threat model: mass/scalable attacks.</strong> PGS is designed to resist attacks that are scalable: where compromising one resource exposes many users. A service database breach is one operation exposing millions of credentials. Compromising millions of individual devices is not one operation; it is millions of individually costly, detectable operations. The two-compromise precondition (service breach + device access) therefore provides strong resistance against mass attacks even if the compromises are not simultaneous.</p>
+<p><strong>Why cloud storage does not collapse this barrier.</strong> Cloud-account compromise is described by the data it yields: candidate entropy-source files (the photo library) and, when synced metadata is co-located in the same account, per-entry metadata including a stored <code>entropyID</code> or <code>profileID</code>. It yields no pepperword, because PGS stores no passwords; the account contains no offline verifier. Without a verifier, a passphrase candidate can only be checked by submitting the derived pepperword to a live relying service, an online attack subject to rate limiting and lockout. The size of the search depends on what was obtained. Without a stored identifier, the attacker faces a two-dimensional search: N candidate files × passphrase space. With a stored identifier (for example, the photo library and the synced metadata both in iCloud), the file-identification dimension collapses to an <code>O(N_files)</code> fingerprint match and only the passphrase dimension remains (§8.6). Either way, verification stays online; cloud-account compromise alone does not enable offline search.</p>
+<p>Offline search requires a verifier: a known pepperword, or a relying service's stored verifier of one (a breached password hash suffices; each guess then also pays that service's hashing cost). An attacker who holds the cloud data above plus such a verifier can brute-force the passphrase offline, at HMAC-SHA-512 speed in the worst case (§8.2). The remaining defense is the passphrase strength this section opens with. Scaling this across users would require correlating two provider-scale breaches: credential databases leak routinely, but byte-exact private photo libraries are petabyte-scale stores with no history of provider-scale exfiltration. The conclusion's "not achievable at scale" rests on that asymmetry.</p>
+<p><strong>Targeted attacks are out of scope.</strong> An attacker who has physically compromised a specific device can keylog the passphrase directly, read app memory, or extract data without any brute-force. For such an attacker, the offline path (ES + pepperword → brute-force HPM) is the harder route, not the easier one. Password confidentiality is not the binding constraint in a targeted device compromise, and PGS makes no claim to protect against it.</p>
+<p><strong>Conclusion.</strong> If the entropy source is secret, key stretching provides no benefit: the attacker cannot compute the pepper. If the entropy source is compromised but no pepperword is known, verification requires submitting candidates to live services, an online attack subject to rate limiting and lockout. If both are known, offline search becomes possible, but this precondition is not achievable at scale. Key stretching adds real, user-visible cost on every derivation against an attack surface that does not justify it.</p>
+<h3 id="85-per-app-isolation">8.5 Per-App Isolation</h3>
+<p>Peppers are derived via a hash-based index lookup over the 4096-block pool. The probability of two distinct targets mapping to the same index (and therefore the same pepper) is:</p>
+<pre><code>P(collision | N apps) = 1 - (4096 · 4095 · ... · (4096 - N + 1)) / 4096^N</code></pre>
+<p>For N = 10 apps: ≈ 1.1%. For N = 20 apps: ≈ 4.6%.</p>
+<p>Apps that share a pepper still produce independent derivations when their HPMs differ, which is the case when creationTimestamps differ. This separation is conditional, not guaranteed. First, <code>creationTimestamp</code> is a caller-supplied value with no uniqueness requirement across entries (§6.1); HPM separation holds only when the stored values actually differ, though collisions are unlikely in ordinary use (interactive entry creation rarely lands two entries on the same millisecond). Second, distinct HPMs yield independent HMAC outputs, not guaranteed-distinct pepperwords: the policy mapping compresses 512 bits into the policy's output space, so two independent derivations collide with probability roughly 1/|space| (more if the composition is skewed by duplicate characters) — negligible for typical policies, appreciable for small spaces such as a six-digit PIN. A pepper collision alone is therefore unlikely to break app isolation at the pepperword level. It does mean that knowledge of <code>NE[idx]</code> exposes the pepper for two apps simultaneously, which is a second-order risk only if NE is partially compromised.</p>
+<h3 id="86-entropy-id-security">8.6 Entropy ID Security</h3>
+<p><code>entropyID</code> is derived from <code>eb3</code> (NE[4098]) via SHA-256 with a domain-separation label and 15-byte truncation. Its security properties depend on what else the attacker holds.</p>
+<p><strong>Attacker with <code>entropyID</code> only.</strong> No path to <code>eb3</code>, <code>NE</code>, or any pepperword. SHA-256 preimage resistance ensures the 15-byte truncated hash leaks no information about the entropy source's content. <code>entropyID</code> is safe to expose in this scenario.</p>
+<p><strong>Attacker with <code>entropyID</code> and a candidate-file corpus.</strong> <code>entropyID</code> functions as a deterministic fingerprint: the attacker computes <code>GenerateEntropyID(Normalize(candidate))</code> for each file and matches against the target <code>entropyID</code>. Whichever file matches is the entropy source. This is not a preimage attack; preimage resistance is irrelevant when the search space is small and known.</p>
+<p><strong>Implication for two-factor protection.</strong> Under device or cloud-account compromise (attacker has both the user's files and a stored <code>entropyID</code>), the attacker reduces the search from <code>O(N_files × N_passphrases)</code> to <code>O(N_files)</code> fingerprint matches followed by <code>O(N_passphrases)</code> pepperword derivations; whether those derivations can be verified offline still depends on holding a verifier for some pepperword (§8.4). Implementations SHOULD treat <code>entropyID</code> as sensitive metadata rather than freely loggable, especially in storage paths that may be synced or backed up alongside the user's file corpus.</p>
+<p><strong><code>profileID</code> as a fingerprint.</strong> The 6-character <code>profileID</code> is the 30-bit prefix of <code>entropyID</code>, and 30 bits is enough to fingerprint the entropy source within a personal-scale corpus: against <code>N</code> candidate files the expected false-match rate is ≈ <code>N / 2^30</code> (≈ 10^(−5) for a 10,000-file library). Wherever <code>profileID</code> appears in stored or synced metadata — for example embedded in a cloud record name — it carries the same oracle risk as <code>entropyID</code> under the same preconditions (the attacker holds the value and a candidate corpus), differing only in collision rate, not in fingerprinting power at personal scale. Treat <code>profileID</code> as sensitive metadata accordingly.</p>
+<p><strong>Uniqueness.</strong> Two distinct entropy sources produce the same <code>entropyID</code> with probability bounded by the collision probability of SHA-256 truncated to 15 bytes (≈ 2^(−120)). <code>profileID</code>, the 6-character prefix, carries ~30 bits of collision resistance: negligible for the expected number of profiles per user, but not globally unique. Callers that require a globally collision-free key SHOULD use the full <code>entropyID</code> rather than <code>profileID</code>.</p>
+<h3 id="87-hash-construction">8.7 Hash Construction</h3>
+<p><code>HMAC-SHA-512(key=pepper, message=HPM)</code> is the standard keyed-hash construction. HMAC has a formal security reduction (pseudorandomness under the assumption that the underlying compression function is a PRF) and is the community standard for keyed hashing.</p>
+<h3 id="88-permutation-distribution">8.8 Permutation Distribution</h3>
+<p><code>GeneratePermutation</code> uses standard Fisher-Yates with divisor <code>i+1</code> at step <code>i</code>. Two effects make the distribution over all n! permutations non-uniform. <strong>Bounded reachability</strong> (dominant at large n): the permutation is seeded by <code>ba</code>, which carries 256 bits of entropy (the 32-byte <code>h2</code>); the initial <code>SHA-512(ba)</code> widens it to a 512-bit seed but adds no entropy, so at most 2^256 of the n! permutations are reachable. For small n this is moot (at n = 12, 12! ≈ 2^28.8 ≪ 2^256, so the seed width excludes no permutation); at the maximum n = 98, 98! ≈ 2^511.5, so at most a ≈ 2^(-255.5) fraction of the permutations are reachable. <strong>Modular bias</strong>: even modeling the 512-bit seed as uniform, the modular reduction leaves a statistical distance from uniform bounded by <code>n! / 2^512</code> (≈ 2^(-483) at n = 12, ≈ 2^(-0.5) ≈ 71% at n = 98); this bound is loose. Both effects mean the permutation distribution at large n is far from uniform over all n!.</p>
+<p>This non-uniformity is acceptable under the threat model that sets attacker cost: search over entropy-source and passphrase candidates (§8.2, §8.4). An attacker holding a verifier searches the passphrase space if the entropy source is known, or candidate files × passphrases if only a candidate corpus is held (§8.4). Verification is deterministic per candidate: a given (entropy source, passphrase) candidate produces exactly one pepperword, which either matches the verifier or does not. The distribution over pepperwords therefore does not change per-candidate cost, and gives the attacker no way to prioritize candidates; every candidate must still be evaluated through the full pipeline. The permutation's own contribution is bounded by <code>log₂(n!)</code> and is not the dominant entropy source, so its shape does not affect this search.</p>
+<p>A separate attack model is direct output guessing: an attacker who lacks the entropy source and passphrase guesses pepperword strings directly, either online against a live relying service or offline against a breached verifier. Output non-uniformity is in principle relevant here: it would let the attacker order guesses by descending probability, lowering the effective guessing entropy of the permutation component below <code>log₂(n!)</code>. The defense in this model is the pepperword's total output entropy, and the weight of the permutation bias within it depends on the policy: under typical policies the permutation is one component among several and the residual effect is minor, while a degenerate composition that fixes the character multiset (every unit a single scalar) makes the permutation the sole entropy component, bounded even then by the seed's 256 bits. Rejection sampling would remove the modular bias (it cannot widen bounded reachability, which is inherent to the 256-bit seed) but provides no benefit under the candidate-search model that sets attacker cost, and is not adopted.</p>
+<h3 id="89-target-identifier-stability">8.9 Target Identifier Stability</h3>
+<p>The target identifier MUST remain stable per app across all client implementations and versions. A change to the normalization rules, or inconsistency between the main app and an AutoFill extension, changes the derived pepper and produces a different pepperword, silently locking the user out of their account with no error indication. This is among the highest-severity implementation risks in PGS.</p>
+<p>All code paths that call <code>GeneratePepper</code> MUST use identical <code>targetId</code> derivation logic. The normalization test vectors in §9.5 are normative for this purpose and MUST be used to validate every implementation and every platform port.</p>
+<h3 id="810-timing-analysis">8.10 Timing Analysis</h3>
+<p><code>Permute</code> executes a variable number of trials until the generated string matches <code>compositionPattern</code>. Trial count depends on the compositionPattern's specificity. For common policies (e.g., must contain a digit), the expected number of trials is under 5. For highly restrictive patterns, it may be higher.</p>
+<p>The trial count is observable only to an attacker who can time the derivation, and the derivation runs on the user's device. That is the targeted device compromise §8.4 places out of scope: an attacker positioned to time derivations can keylog the passphrase or read the pepperword directly, and needs no timing channel. Where the output is visible anyway (the pepperword is submitted to the relying application), trial count reveals nothing the pepperword itself does not.</p>
+<p>The retry hash chain <code>h = SHA-512(h || UTF8(s))</code> ensures each trial uses fresh entropy derived from the previous permutation, preventing an attacker who observes the pepperword from predicting earlier rejected candidates.</p>
+<h3 id="811-metadata-custody">8.11 Metadata Custody</h3>
+<p>PGS has five recovery inputs: entropy source, passphrase, creationTimestamp, policy, and target identifier. The first two are user-held secrets. The latter three are opaque metadata: they cannot be memorised, cannot be reconstructed on demand, and have no meaningful default. Loss of any one of them makes the pepperword permanently unrecoverable regardless of whether both secrets are intact.</p>
+<p><code>targetId</code> deserves special emphasis: although it can be derived from a URL via the normalization algorithm in §5.1, that derivation is only correct for the URL in effect at credential creation. If the URL later changes, the original <code>targetId</code> used at password generation time becomes unrecoverable unless it was explicitly stored at that time. Storing only the current URL and re-deriving <code>targetId</code> on the fly is therefore insufficient for rotation history recovery.</p>
+<p>To derive any pepperword, an implementation needs the <code>creationTimestamp</code>, <code>policy</code>, and <code>targetId</code> in effect at that pepperword's generation. How those values are persisted, synchronised across devices, or backed up is an implementation concern. A user whose only device loses this metadata, with no backup, loses access to all credentials whose metadata was lost, even with the correct entropy source and passphrase.</p>
+<p>The three recovery fields contain no secret: knowledge of <code>creationTimestamp</code>, <code>policy</code>, and <code>targetId</code> reveals nothing about any pepperword without the entropy source and passphrase, and they may be stored and synced in plaintext. This plaintext claim is scoped to those three fields. Other per-entry metadata is not automatically in the same class: <code>entropyID</code> and <code>profileID</code> are sensitive fingerprinting metadata per §8.6.</p>
+<hr>
+<h2 id="9-test-vectors">9. Test Vectors</h2>
+<h3 id="91-test-entropy-source">9.1 Test Entropy Source</h3>
+<p>All test vectors use the following entropy source, constructed deterministically from a 256-bit seed by stretching with SHAKE-256:</p>
+<pre><code>seed = SHA-256(&quot;PGS v1.3 test vector seed&quot;)   = 0d7d201fedfaa4d8b98260f39376f8fd249f12c489a61a4d9ba7ab5812faa2fb
+ES   = SHAKE-256(seed, NE_SIZE × 32 + 32)                  (132128 bytes)</code></pre>
+<p>The seed is a "nothing up my sleeve" number, derived from a fixed ASCII string via SHA-256 and verifiable by anyone. The seed string intentionally retains "v1.3"; the NE derivation algorithm has been identical since v1.3. <code>ES</code> satisfies the size requirement (<code>len(ES) &gt; NE_SIZE × 32</code>). Both primitives are defined in §2.3.</p>
+<pre><code>SHA-256(ES) = 35c81f2cb9070deba98a9c1e484a1b1ee50186b5c8bc76b548ee3f75731311bd</code></pre>
+<p>NE is derived from ES per §4.1:</p>
+<pre><code>NE   = SHAKE-256(ES, NE_SIZE × 32)                          (132096 bytes)
+SHA-256(NE) = 7284c8242c2591ceeacf5638f1959bf90ed525ba8fee5caee702497e74dea1f1</code></pre>
+<h3 id="92-test-policies">9.2 Test Policies</h3>
+<pre><code>Policy &quot;default&quot;:
+  composition: [
+    &lt;&quot;abcdefghijklmnopqrstuvwxyz&quot;, 8&gt;,
+    &lt;&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;, 2&gt;,
+    &lt;&quot;0123456789&quot;, 2&gt;
+  ]
+  compositionPattern: .*    (any string)
+  prefix:  &quot;&quot;
+  postfix: &quot;&quot;
+
+Policy &quot;special&quot;:
+  composition: [
+    &lt;&quot;abcdefghijklmnopqrstuvwxyz&quot;, 8&gt;,
+    &lt;&quot;0123456789&quot;, 2&gt;,
+    &lt;&quot;!@#$%^&amp;*&quot;, 1&gt;
+  ]
+  compositionPattern: .*[!@#$%^&amp;*].*
+  prefix:  &quot;&quot;
+  postfix: &quot;&quot;
+
+Policy &quot;emoji&quot;:
+  composition: [
+    &lt;&quot;a🔑b&quot;, 6&gt;           (charSet of three scalars: U+0061, U+1F511, U+0062)
+  ]
+  compositionPattern: .*
+  prefix:  &quot;&quot;
+  postfix: &quot;&quot;
+
+Policy &quot;wrapped&quot;:
+  composition: same as policy &quot;default&quot;
+  compositionPattern: ^[a-z].*[a-z]$
+  prefix:  &quot;9-&quot;
+  postfix: &quot;-Z&quot;
+
+Policy &quot;digitfirst&quot;:
+  composition: same as policy &quot;default&quot;
+  compositionPattern: ^[0-9]
+  prefix:  &quot;&quot;
+  postfix: &quot;&quot;</code></pre>
+<h3 id="93-intermediate-values-for-vector-1">9.3 Intermediate Values for Vector #1</h3>
+<p>NE seed blocks are unchanged from v1.5 (NE derivation is identical).</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Step</th><th>Value (hex)</th></tr></thead>
+<tbody>
+<tr><td><code>SHAKE-256(ES, NE_SIZE × 32)</code> → NE</td><td>132096 bytes; verifiable via SHA-256(NE) in §9.1</td></tr>
+<tr><td><code>NE[4096]</code> (eb1)</td><td><code>4d7ea7b11949fe44558b030c8dc7aeff12fc6fdd2187132e9f03f2ff64075604</code></td></tr>
+<tr><td><code>NE[4097]</code> (eb2)</td><td><code>9290a6f963c230d21bdb8421437e2ac98cff069703b25162f02b9b1b204f2e43</code></td></tr>
+<tr><td>`h = SHA-256(UTF8("google.com") \</td><td>\</td><td>NE[4096])`</td><td><code>86c4ddad4b3e0905e4a67de737a8e378f63030f2edbb15d5c28c20d35adf3baf</code></td></tr>
+<tr><td><code>idx = BigInt(h) mod 4096</code></td><td><code>2991</code></td></tr>
+<tr><td><code>NE[2991]</code></td><td><code>0aa9e59926042e2c30a18e552f25cc9d9235c8d84c6b87a1d96a076c9d2538fc</code></td></tr>
+<tr><td>`pepper = SHA-256(NE[2991] \</td><td>\</td><td>NE[4097])`</td><td><code>8b5cf7e3db31f0b5d5c329e16262df1a8d9f083c92d5140cf563a5a9fbab77b2</code></td></tr>
+<tr><td>`HPM = uint64_be(1700000000000) \</td><td>\</td><td>UTF8("hunter2")` (hex)</td><td><code>0000018bcfe5680068756e74657232</code></td></tr>
+<tr><td><code>h = HMAC-SHA-512(key=pepper, message=HPM)</code></td><td><code>31a60bd913498a7b5912d9ed701f8bc0d583d9cd4d5cfc4844b6f1f96002c0ad2f32ebe8563138fbc27c6a19d3e99800cf9d3accea1a7808315f01b0626d2fa8</code></td></tr>
+<tr><td><code>h1 = h[0:32]</code></td><td><code>31a60bd913498a7b5912d9ed701f8bc0d583d9cd4d5cfc4844b6f1f96002c0ad</code></td></tr>
+<tr><td><code>h2 = h[32:64]</code></td><td><code>2f32ebe8563138fbc27c6a19d3e99800cf9d3accea1a7808315f01b0626d2fa8</code></td></tr>
+</tbody></table></div>
+<h3 id="94-test-vectors">9.4 Test Vectors</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>targetId</th><th>passphrase</th><th>creationTimestamp</th><th>policy</th><th>expected pepperword</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><code>google.com</code></td><td><code>hunter2</code></td><td><code>1700000000000</code></td><td>default</td><td><code>kpjurr5Jm9Hr</code></td></tr>
+<tr><td>2</td><td><code>google.com</code></td><td><code>hunter2</code></td><td><code>1700000000001</code></td><td>default</td><td><code>1vcqrbaf0DkU</code></td></tr>
+<tr><td>3</td><td><code>github.com</code></td><td><code>hunter2</code></td><td><code>1700000000000</code></td><td>default</td><td><code>t0tznzuYbcJ5</code></td></tr>
+<tr><td>4</td><td><code>example.com</code></td><td><code>p</code></td><td><code>1700000000000</code></td><td>default</td><td><code>rzkYa3i0iifX</code></td></tr>
+<tr><td>5</td><td><code>example.com</code></td><td><code>hunter2</code></td><td><code>1700000000000</code></td><td>special</td><td><code>eyzytf^g0i2</code></td></tr>
+<tr><td>6</td><td><code>example.com</code></td><td><code>cafe</code> + U+0301</td><td><code>1700000000000</code></td><td>default</td><td><code>btKss3Onq8uf</code></td></tr>
+<tr><td>7</td><td><code>example.com</code></td><td><code>🔑hunter2</code></td><td><code>1700000000000</code></td><td>default</td><td><code>jkH7ikre0eBz</code></td></tr>
+<tr><td>8</td><td><code>example.com</code></td><td><code>hunter2</code></td><td><code>1700000000000</code></td><td>emoji</td><td><code>🔑ab🔑🔑b</code></td></tr>
+<tr><td>9</td><td><code>example.com</code></td><td><code>hunter2</code></td><td><code>1700000000000</code></td><td>wrapped</td><td><code>9-tg1fXyGe9yiz-Z</code></td></tr>
+<tr><td>10</td><td><code>example.com</code></td><td><code>hunter2</code></td><td><code>1700000000000</code></td><td>digitfirst</td><td><code>9tGzg1yfyeXi</code></td></tr>
+</tbody></table></div>
+<p>Vector #2 MUST differ from #1 (rotation produces a different pepperword). Vector #3 MUST differ from #1 (different target produces a different pepperword). Vector #5 MUST contain a character from <code>!@#$%^&amp;*</code>. Vector #6's passphrase is the five-scalar NFD sequence U+0063 U+0061 U+0066 U+0065 U+0301 (<code>cafe</code> plus COMBINING ACUTE ACCENT). NFC (§2.6) maps it to the four-scalar precomposed <code>café</code> (ending U+00E9), so the same pepperword MUST result from supplying either form. An implementation that skips NFC hashes different HPM bytes and fails this vector on the NFD form. Vector #7's passphrase begins with U+1F511 (🔑), a supplementary-plane scalar (UTF-8 <code>f0 9f 94 91</code>, two UTF-16 code units). It pins correct UTF-8 encoding of astral scalars in HPM; a CESU-8 or surrogate-splitting encoder fails it. Vector #8's charSet has |C| = 3 Unicode scalars but 4 UTF-16 code units, so both the modulus and the indexing <code>C[r]</code> in CompositionUnitEncode (§6.3) diverge under the UTF-16 code-unit indexing that §2.6 forbids. Vector #9 pins <code>prefix || core || postfix</code> assembly and that compositionPattern matches the core only (§6.2): the prefix begins with a digit and the postfix ends with an uppercase letter, so an implementation that matches the pattern against the assembled string can never satisfy <code>^[a-z].*[a-z]$</code> and aborts at MAX_TRIALS instead of producing the expected output. Vector #10 requires 4 permutation trials under <code>^[0-9]</code>; the retry chain below is normative for the §6.4 construction.</p>
+<p><strong>Intermediate values for Vector #10 (Permute retry chain).</strong> Vector #9 shares every derivation input with #10 except the policy's pattern and affixes, so <code>pepper</code>, <code>h1</code>, <code>h2</code>, and <code>encoded</code> below apply to it as well; its pattern <code>^[a-z].*[a-z]$</code> accepts the trial-1 candidate, which is why #9's core is <code>tg1fXyGe9yiz</code>. The <code>encoded</code> value shows the §6.3 unit order: unit n (digits) occupies the leading positions. Trial 4's post-trial hash update is computed per the §6.4 pseudocode but does not affect the output and is omitted.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Step</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>`h = SHA-256(UTF8("example.com") \</td><td>\</td><td>NE[4096])`</td><td><code>7126905e400b91dbad771c68bec643a947659c050a5c1fa587a0d869d2a220b6</code></td></tr>
+<tr><td><code>idx = BigInt(h) mod 4096</code></td><td><code>182</code></td></tr>
+<tr><td>`pepper = SHA-256(NE[182] \</td><td>\</td><td>NE[4097])`</td><td><code>5aba64b0f08f5750e61b9689aa0b921e9ff92fea9a3569b5879a675e1bf17152</code></td></tr>
+<tr><td><code>h = HMAC-SHA-512(key=pepper, message=HPM)</code></td><td><code>5d2c9a09ea1a97d6eab206b155e154e6a1c774c7c7ca1c748e3335291b916e204e2e0ffb382c998128fe0f0e6a0759089e84ad6b1cfae559305af1ddcb4358a3</code></td></tr>
+<tr><td><code>h1 = h[0:32]</code></td><td><code>5d2c9a09ea1a97d6eab206b155e154e6a1c774c7c7ca1c748e3335291b916e20</code></td></tr>
+<tr><td><code>h2 = h[32:64]</code></td><td><code>4e2e0ffb382c998128fe0f0e6a0759089e84ad6b1cfae559305af1ddcb4358a3</code></td></tr>
+<tr><td><code>encoded = CompositionEncode(comp, h1)</code></td><td><code>91XGezyityfg</code></td></tr>
+<tr><td><code>h₀ = SHA-512(h2)</code></td><td><code>aec37fa68547f822f02a78854672df54b17075f0be9ab1ef99eb05b0e3862f5f68deda117e5d7858e4524e1d0251ae2d55faf3622dab75afc35aa2bd84b4729d</code></td></tr>
+<tr><td>trial 1 candidate (no match)</td><td><code>tg1fXyGe9yiz</code></td></tr>
+<tr><td>`h₁ = SHA-512(h₀ \</td><td>\</td><td>UTF8("tg1fXyGe9yiz"))`</td><td><code>bea5ed9590c554752465335a25750b1299cbbeeafac57f1791626defe5347c204080bac64722bb22ae2793fb01f641621f59948d07a4559910d0cd13d92f67e8</code></td></tr>
+<tr><td>trial 2 candidate (no match)</td><td><code>g1feyXyG9zit</code></td></tr>
+<tr><td>`h₂ = SHA-512(h₁ \</td><td>\</td><td>UTF8("g1feyXyG9zit"))`</td><td><code>0e3da22e7a3ea08f2ac143e70a5a6d7b6a8d84954b57a40c72ac801285b0364687b997aba6a8e675effa7bf4d2f7aef45307321f489e373ab3009239ce9471af</code></td></tr>
+<tr><td>trial 3 candidate (no match)</td><td><code>GyyXi9tze1fg</code></td></tr>
+<tr><td>`h₃ = SHA-512(h₂ \</td><td>\</td><td>UTF8("GyyXi9tze1fg"))`</td><td><code>d1f26bdbf5c2ed994dfd790516e2aff023598ecabef5022071364424613c69f70ba89552332baf8cf68fc9af58decd343116dc464290b698d4087c8f4bf0f95f</code></td></tr>
+<tr><td>trial 4 candidate (matches <code>^[0-9]</code>; returned)</td><td><code>9tGzg1yfyeXi</code></td></tr>
+</tbody></table></div>
+<h3 id="95-targetid-normalization-vectors">9.5 targetId Normalization Vectors</h3>
+<p>These vectors are normative. Any compliant implementation MUST produce the exact output shown. Because targetId divergence silently produces a different pepper, these vectors are the primary conformance check for §5.1. Every registrable-domain reduction here uses a stable ICANN public suffix (<code>.com</code>, <code>.co.uk</code>), and the <code>invalid</code> TLD is reserved by [RFC 6761] and can never enter the list, so no expected output depends on the PSL snapshot. Wildcard and exception entries (such as <code>*.ck</code>/<code>!www.ck</code>) are deliberately not exercised: registry policy changes can rewrite them, and a vector relying on one would fail a conforming implementation under a later snapshot. Reductions that rely on a PSL <em>private</em>-section entry are snapshot-dependent and are therefore excluded from the normative set; the <code>app.github.io</code> row in the §5.1 examples table is illustrative only.</p>
+<p><strong>Success cases:</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Input URL</th><th>Expected targetId</th></tr></thead>
+<tbody>
+<tr><td><code>https://mail.google.com</code></td><td><code>google.com</code></td></tr>
+<tr><td><code>HTTPS://GOOGLE.COM/search?q=foo</code></td><td><code>google.com</code></td></tr>
+<tr><td><code>http://example.com:8080/path</code></td><td><code>example.com</code></td></tr>
+<tr><td><code>https://app.example.co.uk</code></td><td><code>example.co.uk</code></td></tr>
+<tr><td><code>https://xn--mnchen-3ya.de</code></td><td><code>xn--mnchen-3ya.de</code></td></tr>
+<tr><td><code>https://google.com.</code></td><td><code>google.com</code></td></tr>
+<tr><td><code>http://localhost</code></td><td><code>localhost</code></td></tr>
+<tr><td><code>http://intranet</code></td><td><code>intranet</code></td></tr>
+<tr><td><code>https://app.server.invalid</code></td><td><code>app.server.invalid</code></td></tr>
+<tr><td><code>https://192.168.1.1</code></td><td><code>192.168.1.1</code></td></tr>
+</tbody></table></div>
+<p><strong>Abort cases</strong> (implementation MUST abort, not silently produce output):</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Input URL</th><th>Reason</th></tr></thead>
+<tbody>
+<tr><td><code>ftp://example.com</code></td><td>Scheme not http/https (step 1)</td></tr>
+<tr><td><code>https://user:pass@google.com</code></td><td>Userinfo not supported (step 1)</td></tr>
+<tr><td><code>https://[::1]</code></td><td>IP-literal / IPv6 host not supported (step 1)</td></tr>
+<tr><td><code>https://münchen.de</code></td><td>Non-ASCII host (step 3); supply <code>xn--mnchen-3ya.de</code></td></tr>
+<tr><td><code>https://faß.de</code></td><td>Non-ASCII host (step 3); supply the A-label form</td></tr>
+<tr><td><code>https://example.com:abc</code></td><td>Port is not a number (step 2)</td></tr>
+<tr><td><code>https://example.com:0</code></td><td>Explicit port 0 (step 2)</td></tr>
+<tr><td><code>https://com</code></td><td>Host is a bare public suffix (step 5b)</td></tr>
+</tbody></table></div>
+<h3 id="96-entropy-id-vectors">9.6 Entropy ID Vectors</h3>
+<p>These vectors are normative. Any compliant implementation MUST produce the exact output shown.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Input (from test entropy source §9.1)</th><th>Step</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>NE[4098] (eb3)</td><td><code>SHAKE-256(ES, NE_SIZE × 32)[4098×32 : 4099×32]</code></td><td><code>9e57eb608581528895ebeda5788909449c5f20ccddca1139896f1e23a20b8b1c</code></td></tr>
+<tr><td>`data = eb3 \</td><td>\</td><td>UTF8("pgs-entropy-id")`</td><td>byte concatenation</td><td><code>9e57eb608581528895ebeda5788909449c5f20ccddca1139896f1e23a20b8b1c7067732d656e74726f70792d6964</code></td></tr>
+<tr><td><code>h = SHA-256(data)</code></td><td>SHA-256 of data</td><td><code>5ef752d4b7e7d0793ace8bab51f5de9716ae9169c45724046630f1dc07ed883d</code></td></tr>
+<tr><td><code>entropyID = base32_lowercase(h[0:15])</code></td><td>15-byte truncation, RFC 4648 base32 lowercased, no padding</td><td><code>l33vfvfx47ihsoworovvd5o6</code></td></tr>
+<tr><td><code>profileID = entropyID[0:6]</code></td><td>first 6 characters of entropyID</td><td><code>l33vfv</code></td></tr>
+</tbody></table></div>
+<hr>
+<h2 id="10-references">10. References</h2>
+<h3 id="101-normative-references">10.1 Normative References</h3>
+<ul>
+<li><strong>[RFC 1035]</strong> Mockapetris, P., "Domain Names - Implementation and Specification," STD 13, RFC 1035, November 1987. <a href="https://tools.ietf.org/html/rfc1035">https://tools.ietf.org/html/rfc1035</a></li>
+<li><strong>[RFC 1123]</strong> Braden, R., Ed., "Requirements for Internet Hosts - Application and Support," STD 3, RFC 1123, October 1989. <a href="https://tools.ietf.org/html/rfc1123">https://tools.ietf.org/html/rfc1123</a></li>
+<li><strong>[RFC 2104]</strong> Krawczyk, H., Bellare, M., and Canetti, R., "HMAC: Keyed-Hashing for Message Authentication," RFC 2104, February 1997. <a href="https://tools.ietf.org/html/rfc2104">https://tools.ietf.org/html/rfc2104</a></li>
+<li><strong>[RFC 2119]</strong> Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels," BCP 14, RFC 2119, March 1997. <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a></li>
+<li><strong>[RFC 3986]</strong> Berners-Lee, T., Fielding, R., and Masinter, L., "Uniform Resource Identifier (URI): Generic Syntax," STD 66, RFC 3986, January 2005. <a href="https://tools.ietf.org/html/rfc3986">https://tools.ietf.org/html/rfc3986</a></li>
+<li><strong>[RFC 4648]</strong> Josefsson, S., "The Base16, Base32, and Base64 Data Encodings," RFC 4648, October 2006. <a href="https://tools.ietf.org/html/rfc4648">https://tools.ietf.org/html/rfc4648</a></li>
+<li><strong>[RFC 5234]</strong> Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax Specifications: ABNF," STD 68, RFC 5234, January 2008. <a href="https://tools.ietf.org/html/rfc5234">https://tools.ietf.org/html/rfc5234</a></li>
+<li><strong>[RFC 5890]</strong> Klensin, J., "Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework," RFC 5890, August 2010. <a href="https://tools.ietf.org/html/rfc5890">https://tools.ietf.org/html/rfc5890</a></li>
+<li><strong>[FIPS 180-4]</strong> NIST, "Secure Hash Standard (SHS)," FIPS PUB 180-4, August 2015. <a href="https://csrc.nist.gov/publications/detail/fips/180/4/final">https://csrc.nist.gov/publications/detail/fips/180/4/final</a></li>
+<li><strong>[FIPS 202]</strong> NIST, "SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions," FIPS PUB 202, August 2015. <a href="https://csrc.nist.gov/publications/detail/fips/202/final">https://csrc.nist.gov/publications/detail/fips/202/final</a></li>
+<li><strong>[PSL]</strong> Mozilla Foundation, "Public Suffix List." <a href="https://publicsuffix.org/">https://publicsuffix.org/</a></li>
+</ul>
+<h3 id="102-informative-references">10.2 Informative References</h3>
+<p>Cited for provenance or rationale; the algorithms and grammars they describe are fully specified inline where this document uses them, so conformance does not require consulting these references.</p>
+<ul>
+<li><strong>[Fisher-Yates]</strong> Fisher, R.A. and Yates, F., "Statistical Tables for Biological, Agricultural and Medical Research," 1938. <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle</a></li>
+<li><strong>[RE2]</strong> Google, "RE2 Syntax Reference." <a href="https://github.com/google/re2/wiki/Syntax">https://github.com/google/re2/wiki/Syntax</a></li>
+<li><strong>[RFC 6761]</strong> Cheshire, S. and Krochmal, M., "Special-Use Domain Names," RFC 6761, February 2013. <a href="https://tools.ietf.org/html/rfc6761">https://tools.ietf.org/html/rfc6761</a></li>
+</ul>
+<hr>
+<h2 id="appendix-a-implementor-pitfalls-non-normative">Appendix A: Implementor Pitfalls (Non-Normative)</h2>
+<p>Not referenced from the normative text; retained as practical notes.</p>
+<h3 id="a-1-biginteger-byte-order">A.1 BigInteger Byte Order</h3>
+<p><code>BigInt(b)</code> uses standard big-endian byte order: <code>b[0]</code> is the most significant byte. This matches all standard big-integer libraries:</p>
+<ul>
+<li>Python: <code>int.from_bytes(b, 'big')</code></li>
+<li>Go: <code>new(big.Int).SetBytes(b)</code></li>
+<li>Java: <code>new BigInteger(1, b)</code> (the unsigned constructor; <strong>never</strong> <code>new BigInteger(b)</code>, which is signed two's-complement)</li>
+</ul>
+<p>For SHA-256 output <code>h</code>, <code>BigInt(h) mod 4096</code> is determined by the lowest 12 bits of the integer, i.e. the low 4 bits of <code>h[30]</code> and all 8 bits of <code>h[31]</code>.</p>
+<p><strong>Test vector for endianness:</strong> For the 32-byte hash <code>h</code> with <code>h[0] = 0x03</code>, <code>h[31] = 0x01</code>, and all other bytes <code>0x00</code> (the low nibble of <code>h[30]</code> also feeds <code>idx</code>, so it must be stated), big-endian gives <code>idx = 1</code>. Any implementation producing <code>idx = 3</code> is interpreting the bytes little-endian and is incorrect.</p>
+<h3 id="a-2-string-encoding">A.2 String Encoding</h3>
+<p>All string-to-bytes conversions use UTF-8:</p>
+<ul>
+<li><code>targetId</code> in <code>GeneratePepper</code></li>
+<li><code>passphrase</code> (NFC-normalized) in <code>GeneratePepperword</code> HPM construction</li>
+<li>The permuted string <code>s</code> in the <code>Permute</code> retry hash chain</li>
+<li>The domain-separation label <code>"pgs-entropy-id"</code> in <code>GenerateEntropyID</code></li>
+</ul>
+<h3 id="a-3-compositionpattern-matching">A.3 compositionPattern Matching</h3>
+<p><strong>Python implementor note.</strong> Python's <code>re</code> module has three match functions with different anchoring behaviour. Only <code>re.search()</code> performs an unanchored match as required by this spec:</p>
+<pre data-language="python"><code># WRONG — re.match() anchors at the start of the string
+if re.match(compositionPattern, s):  # &quot;[A-Z]&quot; only matches if s[0] is uppercase
+
+# WRONG — re.fullmatch() requires the pattern to span the entire string
+if re.fullmatch(compositionPattern, s):  # &quot;[A-Z]&quot; only matches a single uppercase letter
+
+# CORRECT — re.search() matches anywhere within the string
+if re.search(compositionPattern, s):  # &quot;[A-Z]&quot; matches if s contains any uppercase letter</code></pre>
+<hr>
+<h2 id="copyright-and-license">Copyright and License</h2>
+<p>© 2026 Pepperword</p>
+<p>This specification is published for transparency and independent review. The document text is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>: you may copy, redistribute, translate, and annotate it in any medium or format, including commercially, provided you give appropriate credit. This license covers the document only and grants no patent rights (see Patent below).</p>
+<p>"Pepperword" and "PGS" identify the protocol and its specification; this license grants no trademark rights. Only the unmodified specification published by Pepperword may be called "PGS"; adapted or translated copies must not present themselves as the official PGS specification or imply endorsement by Pepperword.</p>
+<h3 id="patent">Patent</h3>
+<p>This specification describes methods covered by U.S. Patent 10,423,776. This document is published for transparency and independent review. It grants no license, express or implied, to practice that patent; all patent rights are reserved. To license the patent or implement PGS, reach out at licensing@pepperword.app.</p>
+  </article>
 </body>
 </html>
